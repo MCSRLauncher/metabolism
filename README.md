@@ -41,6 +41,7 @@ Generation for...
   - (3.x.x) missing backported apple sillicon natives
   - (2.x.x) does not force version to latest on apple sillicon
 - ✅ Fabric
+- ✅ Legacy Fabric
 - ⛔ NeoForge (due to unnecessary for speedrunnning)
 - ⛔ Forge (due to unnecessary for speedrunnning)
 - ⛔ Quilt (due to unnecessary for speedrunnning)
