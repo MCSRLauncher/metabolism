@@ -1,4 +1,4 @@
-import { FABRIC_MAVEN, FABRIC_META } from "#common/constants/urls.ts";
+import { FABRIC_MAVEN, FABRIC_META, LEGACY_FABRIC_MAVEN, LEGACY_FABRIC_META } from "#common/constants/urls.ts";
 import type { HTTPClient } from "#core/httpClient.ts";
 import { defineProvider } from "#core/provider.ts";
 import { FabricMetaVersion, FabricMetaVersions } from "#schema/fabric/fabricMeta.ts";
@@ -8,7 +8,12 @@ export const fabricIntermediaryVersions = defineProvider({
 	provide: http => provide(http, new URL("v2/", FABRIC_META), FABRIC_MAVEN),
 });
 
-export default [fabricIntermediaryVersions];
+export const legacyFabricIntermediaryVersions = defineProvider({
+	id: "legacyfabric-intermediary-versions",
+	provide: http => provide(http, new URL("v2/", LEGACY_FABRIC_META), LEGACY_FABRIC_MAVEN),
+});
+
+export default [fabricIntermediaryVersions, legacyFabricIntermediaryVersions];
 
 export interface FabricIntermediaryVersion extends FabricMetaVersion {
 	lastModified: Date;

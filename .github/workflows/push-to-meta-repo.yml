@@ -1,6 +1,6 @@
 # Quick and dirty stuff just for testing
 
-name: Push to test repo
+name: Push to meta repo
 
 on:
   push:
@@ -18,8 +18,8 @@ jobs:
       - name: Checkout output repo
         uses: actions/checkout@v4
         with:
-          repository: TheKodeToad/metabolism-test
-          token: ${{ secrets.PAT }}
+          repository: MCSRLauncher/meta
+          token: ${{ secrets.META_TOKEN }}
           path: run
       - uses: oven-sh/setup-bun@v2
       - run: bun install --production --frozen-lockfile
@@ -31,6 +31,5 @@ jobs:
           git config user.email "gitbot@scrumplex.net"
           git config user.name "PrismAutomata"
           git add .
-          git diff-index --quiet HEAD || git commit -m "Automatic update for latest commit
-          ${{ github.event.head_commit.message }}"
+            git diff-index --quiet HEAD || git commit -m "Update - $(date +'%Y-%m-%d')"
           git push
