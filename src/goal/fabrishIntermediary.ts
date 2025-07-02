@@ -13,7 +13,7 @@ const fabricIntermediary = defineGoal({
 
 const legacyFabricIntermediary = defineGoal({
 	id: "net.fabricmc.intermediary",
-	name: "Legacy Fabric Intermediary",
+	name: "Fabric Intermediary",
 	provider: legacyFabricIntermediaryVersions,
 
 	generate: data => data.map(version => transformVersion(version, LEGACY_FABRIC_MAVEN)),
