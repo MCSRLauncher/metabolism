@@ -12,7 +12,7 @@ const fabricIntermediary = defineGoal({
 });
 
 const legacyFabricIntermediary = defineGoal({
-	id: "net.legacyfabric.intermediary",
+	id: "net.fabricmc.intermediary",
 	name: "Legacy Fabric Intermediary",
 	provider: legacyFabricIntermediaryVersions,
 
