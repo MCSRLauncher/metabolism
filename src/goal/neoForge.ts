@@ -15,7 +15,8 @@ const FORGEWRAPPER: VersionFileLibrary = {
 	name: "io.github.zekerzhayard:ForgeWrapper:prism-2024-02-29"
 };
 
-export default defineGoal({
+export default 'skip';
+defineGoal({
 	id: "net.neoforged",
 	name: "NeoForge",
 

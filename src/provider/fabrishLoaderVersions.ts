@@ -1,4 +1,4 @@
-import { FABRIC_MAVEN, FABRIC_META, QUILT_MAVEN, QUILT_META } from "#common/constants/urls.ts";
+import { FABRIC_MAVEN, FABRIC_META } from "#common/constants/urls.ts";
 import { HTTPCacheMode, type HTTPClient } from "#core/httpClient.ts";
 import { defineProvider } from "#core/provider.ts";
 import { FabricInstallerData } from "#schema/fabric/fabricInstallerData.ts";
@@ -10,13 +10,13 @@ export const fabricLoaderVersions = defineProvider({
 	provide: http => provide(http, new URL("v2/", FABRIC_META), FABRIC_MAVEN),
 });
 
-export const quiltLoaderVersions = defineProvider({
-	id: "quilt-loader-versions",
+// export const quiltLoaderVersions = defineProvider({
+// 	id: "quilt-loader-versions",
 
-	provide: http => provide(http, new URL("v3/", QUILT_META), QUILT_MAVEN),
-});
+// 	provide: http => provide(http, new URL("v3/", QUILT_META), QUILT_MAVEN),
+// });
 
-export default [fabricLoaderVersions, quiltLoaderVersions];
+export default [fabricLoaderVersions];
 
 export interface FabricLoaderVersion extends FabricMetaVersion {
 	installerData: FabricInstallerData;
