@@ -1,7 +1,7 @@
 # Metabolism
 Generation for Minecraft game and loader metadata - possible future implementation in TypeScript.
 
-For the time being [this repo](https://github.com/TheKodeToad/metabolism-test) mirrors the latest commit - and you can use the generated output by setting your Metadata URL to https://thekodetoad.github.io/metabolism-test/output/.
+You can use the generated output by setting your Metadata URL to https://mcsrlauncher.github.io/meta/.
 
 ## Usage
 First, run `bun install`.
@@ -41,12 +41,10 @@ Generation for...
   - (3.x.x) missing backported apple sillicon natives
   - (2.x.x) does not force version to latest on apple sillicon
 - ✅ Fabric
-- 🚧 NeoForge (does not launch)
-  - no versions are recommended
-  - all versions are classified as rlease
-- ❌ Forge
-- ✅ Quilt
-- ❌ LiteLoader
+- ⛔ NeoForge (due to unnecessary for speedrunnning)
+- ⛔ Forge (due to unnecessary for speedrunnning)
+- ⛔ Quilt (due to unnecessary for speedrunnning)
+- ⛔ LiteLoader (due to unnecessary for speedrunnning)
 - ☑️ Mojang Java (should be good)
 - ❌ Adoptium
 - ❌ Azul Zulu
