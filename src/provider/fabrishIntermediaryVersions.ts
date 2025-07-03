@@ -5,18 +5,25 @@ import { FabricMetaVersion, FabricMetaVersions } from "#schema/fabric/fabricMeta
 
 export const fabricIntermediaryVersions = defineProvider({
 	id: "fabric-intermediary-versions",
-	provide: http => provide(http, new URL("v2/", FABRIC_META), FABRIC_MAVEN),
+	provide: http => provideFabric(http),
 });
 
-export const legacyFabricIntermediaryVersions = defineProvider({
-	id: "legacyfabric-intermediary-versions",
-	provide: http => provide(http, new URL("v2/", LEGACY_FABRIC_META), LEGACY_FABRIC_MAVEN),
-});
+// export const legacyFabricIntermediaryVersions = defineProvider({
+// 	id: "legacyfabric-intermediary-versions",
+// 	provide: http => provide(http, new URL("v2/", LEGACY_FABRIC_META), LEGACY_FABRIC_MAVEN),
+// });
 
-export default [fabricIntermediaryVersions, legacyFabricIntermediaryVersions];
+export default [fabricIntermediaryVersions];
 
 export interface FabricIntermediaryVersion extends FabricMetaVersion {
 	lastModified: Date;
+}
+
+async function provideFabric(http: HTTPClient) {
+	return Promise.all([
+		provide(http, new URL("v2/", FABRIC_META), FABRIC_MAVEN),
+		provide(http, new URL("v2/", LEGACY_FABRIC_META), LEGACY_FABRIC_MAVEN)
+	]).then(([fabric, legacyFabric]) => [...fabric, ...legacyFabric])
 }
 
 async function provide(http: HTTPClient, meta: string | URL, maven: string | URL): Promise<FabricIntermediaryVersion[]> {

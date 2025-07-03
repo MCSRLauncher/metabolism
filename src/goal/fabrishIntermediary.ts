@@ -1,28 +1,19 @@
 import { FABRIC_MAVEN, LEGACY_FABRIC_MAVEN } from "#common/constants/urls.ts";
 import { defineGoal, type VersionOutput } from "#core/goal.ts";
-import { fabricIntermediaryVersions, legacyFabricIntermediaryVersions, type FabricIntermediaryVersion } from "#provider/fabrishIntermediaryVersions.ts";
+import { fabricIntermediaryVersions, type FabricIntermediaryVersion } from "#provider/fabrishIntermediaryVersions.ts";
 
 const fabricIntermediary = defineGoal({
 	id: "net.fabricmc.intermediary",
 	name: "Fabric Intermediary",
 	provider: fabricIntermediaryVersions,
 
-	generate: data => data.map(version => transformVersion(version, FABRIC_MAVEN)),
+	generate: data => data.map(version => transformVersion(version)),
 	recommend: () => true,
 });
 
-const legacyFabricIntermediary = defineGoal({
-	id: "net.legacyfabric.intermediary",
-	name: "Legacy Fabric Intermediary",
-	provider: legacyFabricIntermediaryVersions,
+export default [fabricIntermediary];
 
-	generate: data => data.map(version => transformVersion(version, LEGACY_FABRIC_MAVEN)),
-	recommend: () => true,
-});
-
-export default [fabricIntermediary, legacyFabricIntermediary];
-
-function transformVersion(version: FabricIntermediaryVersion, maven: string): VersionOutput {
+function transformVersion(version: FabricIntermediaryVersion): VersionOutput {
 	return {
 		version: version.version,
 		releaseTime: version.lastModified.toISOString(),
@@ -31,6 +22,6 @@ function transformVersion(version: FabricIntermediaryVersion, maven: string): Ve
 		requires: [{ uid: "net.minecraft", equals: version.version }],
 		volatile: true,
 
-		libraries: [{ name: version.maven.value, url: maven }],
+		libraries: [{ name: version.maven.value, url: version.maven.value.startsWith('net.fabricmc') ? FABRIC_MAVEN : LEGACY_FABRIC_MAVEN }],
 	};
 }
