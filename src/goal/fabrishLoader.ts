@@ -47,7 +47,7 @@ function transformVersion(version: FabricLoaderVersion, maven: string): VersionO
 		version: version.version,
 		releaseTime: version.lastModified.toISOString(),
 
-		requires: [],
+		requires: [{ uid: "net.fabricmc.intermediary" }],
 
 		mainClass: data.mainClass.client,
 		"+tweakers": [...data.launchWrapper.tweakers.client, ...data.launchWrapper.tweakers.common],
