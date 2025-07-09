@@ -30,9 +30,9 @@ export interface VersionFile {
 
 	runtimes?: VersionFileRuntime[];
 
-	// For intermadiary
-	compatibleIntermadiaries?: string[];
-	intermadiaryLibraries?: Record<string, VersionFileLibrary>;
+	// For intermediary
+	compatibleIntermediaries?: string[];
+	intermediaryLibraries?: Record<string, VersionFileLibrary>;
 }
 
 export type VersionFileArtifact = Omit<PistonArtifact, "path">;

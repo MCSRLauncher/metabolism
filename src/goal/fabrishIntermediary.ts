@@ -16,7 +16,7 @@ export default [fabricIntermediary];
 function transformVersion(version: FabricIntermediaryVersion): VersionOutput {
 	const intermediraries: Record<string, VersionFileLibrary> = {};
 	for (const intermediaryInfo of version.intermediraries) {
-		intermediraries[intermediaryInfo.intermadiary.maven.getId()] = { name: intermediaryInfo.intermadiary.maven.value, url: intermediaryInfo.url }
+		intermediraries[intermediaryInfo.intermediary.maven.getId()] = { name: intermediaryInfo.intermediary.maven.value, url: intermediaryInfo.url }
 	}
 
 	return {
@@ -27,7 +27,7 @@ function transformVersion(version: FabricIntermediaryVersion): VersionOutput {
 		requires: [{ uid: "net.minecraft", equals: version.version }],
 		volatile: true,
 
-		compatibleIntermadiaries: version.intermediraries.map(i => i.intermadiary.maven.getId()),
-		intermadiaryLibraries: intermediraries
+		compatibleIntermediaries: version.intermediraries.map(i => i.intermediary.maven.getId()),
+		intermediaryLibraries: intermediraries
 	};
 }

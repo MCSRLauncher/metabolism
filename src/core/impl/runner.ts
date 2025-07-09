@@ -142,7 +142,7 @@ async function runGoal(goal: Goal, data: unknown, options: RunnerOptions): Promi
 				"version",
 				"type",
 				"releaseTime",
-				"compatibleIntermadiaries",
+				"compatibleIntermediaries",
 				"conflicts",
 				"requires"
 			]),

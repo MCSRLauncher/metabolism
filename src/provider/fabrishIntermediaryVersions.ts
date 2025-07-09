@@ -14,7 +14,7 @@ export default [fabricIntermediaryVersions];
 export interface FabricIntermediaryVersion {
 	version: string
 	intermediraries: {
-		intermadiary: FabricMetaVersion,
+		intermediary: FabricMetaVersion,
 		url: string
 	}[];
 	lastModified: Date;
@@ -94,7 +94,7 @@ async function transformVersion(http: HTTPClient, maven: string, id: string, ver
 
 	return {
 		version: version.versionNoSide || version.version,
-		intermediraries: [{ intermadiary: version, url: maven }],
+		intermediraries: [{ intermediary: version, url: maven }],
 		lastModified: infoResponse.lastModified,
 	};
 }
