@@ -24,9 +24,13 @@ class MavenArtifactRef_ {
 
 	get value() {
 		if (this.classifier)
-			return `${this.group}:${this.artifact}:${this.version}:${this.classifier}`;
+			return `${this.getId()}:${this.version}:${this.classifier}`;
 		else
-			return `${this.group}:${this.artifact}:${this.version}`;
+			return `${this.getId()}:${this.artifact}:${this.version}`;
+	}
+
+	getId(): string {
+		return `${this.group}:${this.artifact}`;
 	}
 
 	format(keys: ("group" | "artifact" | "version" | "classifier")[]): string {

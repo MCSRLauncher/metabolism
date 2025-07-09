@@ -1,6 +1,6 @@
-import { FABRIC_MAVEN, LEGACY_FABRIC_MAVEN } from "#common/constants/urls.ts";
 import { defineGoal, type VersionOutput } from "#core/goal.ts";
 import { fabricIntermediaryVersions, type FabricIntermediaryVersion } from "#provider/fabrishIntermediaryVersions.ts";
+import type { VersionFileLibrary } from "#schema/format/v1/versionFile.ts";
 
 const fabricIntermediary = defineGoal({
 	id: "net.fabricmc.intermediary",
@@ -14,6 +14,11 @@ const fabricIntermediary = defineGoal({
 export default [fabricIntermediary];
 
 function transformVersion(version: FabricIntermediaryVersion): VersionOutput {
+	const intermediraries: Record<string, VersionFileLibrary> = {};
+	for (const intermediaryInfo of version.intermediraries) {
+		intermediraries[intermediaryInfo.intermadiary.maven.getId()] = { name: intermediaryInfo.intermadiary.maven.value, url: intermediaryInfo.url }
+	}
+
 	return {
 		version: version.version,
 		releaseTime: version.lastModified.toISOString(),
@@ -22,6 +27,7 @@ function transformVersion(version: FabricIntermediaryVersion): VersionOutput {
 		requires: [{ uid: "net.minecraft", equals: version.version }],
 		volatile: true,
 
-		libraries: [{ name: version.maven.value, url: version.maven.value.startsWith('net.fabricmc') ? FABRIC_MAVEN : LEGACY_FABRIC_MAVEN }],
+		compatibleIntermadiaries: version.intermediraries.map(i => i.intermadiary.maven.getId()),
+		intermadiaryLibraries: intermediraries
 	};
 }

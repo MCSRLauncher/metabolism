@@ -5,6 +5,7 @@ export const FabricMetaVersion = z.object({
 	maven: MavenArtifactRef,
 	version: z.string(),
 	separator: z.string().optional(),
+	versionNoSide: z.string().optional()
 });
 
 export type FabricMetaVersion = z.output<typeof FabricMetaVersion>;
