@@ -159,7 +159,7 @@ async function runGoal(goal: Goal, data: unknown, options: RunnerOptions): Promi
 	};
 
 	const indexPath = path.join(outputDir, "index.json");
-	const indexData = JSON.stringify(indexFile, undefined, 2);
+	const indexData = JSON.stringify(indexFile, undefined, space);
 
 	await writeFile(indexPath, indexData);
 
