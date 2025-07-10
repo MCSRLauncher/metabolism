@@ -26,7 +26,7 @@ class MavenArtifactRef_ {
 		if (this.classifier)
 			return `${this.getId()}:${this.version}:${this.classifier}`;
 		else
-			return `${this.getId()}:${this.artifact}:${this.version}`;
+			return `${this.getId()}:${this.version}`;
 	}
 
 	getId(): string {
