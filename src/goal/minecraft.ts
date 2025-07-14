@@ -26,7 +26,6 @@ function transformVersion(version: PistonVersion): VersionOutput {
 	libraries = libraries.filter(x => !processLWJGL(x, requires, traits));
 
 	if (mainClass?.startsWith("net.minecraft.launchwrapper.")) {
-		const index = libraries.findIndex(x => x.name.value.startsWith("net.minecraft:launchwrapper:"));
 		libraries = libraries.map(x => {
 			if (x.name.value.startsWith("net.minecraft:launchwrapper:")) {
 				return {
