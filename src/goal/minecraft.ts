@@ -26,6 +26,7 @@ function transformVersion(version: PistonVersion): VersionOutput {
 	libraries = libraries.filter(x => !processLWJGL(x, requires, traits));
 
 	if (mainClass?.startsWith("net.minecraft.launchwrapper.")) {
+		// https://api.github.com/repos/MCSRLauncher/LegacyLauncher/releases
 		libraries = libraries.map(x => {
 			if (x.name.value.startsWith("net.minecraft:launchwrapper:")) {
 				return {
