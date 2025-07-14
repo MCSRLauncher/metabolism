@@ -4,6 +4,7 @@ import { isPlatformLibrary, transformArgs, transformPistonLibrary } from "#commo
 import { defineGoal, type VersionOutput } from "#core/goal.ts";
 import pistonMetaGameVersions from "#provider/gameVersions/index.ts";
 import { VersionFileTrait, type VersionFileDependency } from "#schema/format/v1/versionFile.ts";
+import { MavenArtifactRef } from "#schema/mavenArtifactRef.ts";
 import type { PistonLibrary, PistonVersion } from "#schema/pistonMeta/pistonVersion.ts";
 
 export default defineGoal({
@@ -25,6 +26,21 @@ function transformVersion(version: PistonVersion): VersionOutput {
 	libraries = libraries.filter(x => !processLWJGL(x, requires, traits));
 
 	if (mainClass?.startsWith("net.minecraft.launchwrapper.")) {
+		const index = libraries.findIndex(x => x.name.value.startsWith("net.minecraft:launchwrapper:"));
+		libraries = libraries.map(x => {
+			if (x.name.value.startsWith("net.minecraft:launchwrapper:")) {
+				return {
+					name: MavenArtifactRef.parse("net.minecraft:launchwrapper:1.13"),
+					downloads: {
+						artifact: {
+							url: 'https://github.com/MCSRLauncher/LegacyLauncher/releases/download/1.13/LegacyLauncher-1.13.jar',
+							sha1: "5499c9a63920fe569a4ac34db05833d70ddb39e6",
+							size: 40834
+						}
+					}
+				}
+			} else return x;
+		});
 		// libraries = libraries.filter(
 		// 	x => !x.name.value.startsWith("net.minecraft:launchwrapper:")
 		// 		&& x.name.group !== "net.sf.jopt-simple"
