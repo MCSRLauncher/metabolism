@@ -32,7 +32,7 @@ function transformVersion(version: PistonVersion): VersionOutput {
 		);
 
 		// mainClass = undefined;
-		// traits.push(VersionFileTrait.LegacyLaunch);
+		traits.push(VersionFileTrait.LegacyLaunch);
 	}
 
 	if (version.arguments?.game) {
