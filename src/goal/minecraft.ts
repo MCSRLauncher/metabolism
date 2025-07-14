@@ -41,6 +41,28 @@ function transformVersion(version: PistonVersion): VersionOutput {
 				}
 			} else return x;
 		});
+		libraries.push(
+			{
+				"name": MavenArtifactRef.parse("org.apache.logging.log4j:log4j-api:2.8.1"),
+				"downloads": {
+					"artifact": {
+					"url": "https://libraries.minecraft.net/org/apache/logging/log4j/log4j-api/2.8.1/log4j-api-2.8.1.jar",
+					"sha1": "e801d13612e22cad62a3f4f3fe7fdbe6334a8e72",
+					"size": 228859
+					}
+				}
+			},
+			{
+				"name": MavenArtifactRef.parse("org.apache.logging.log4j:log4j-core:2.8.1"),
+				"downloads": {
+					"artifact": {
+					"url": "https://libraries.minecraft.net/org/apache/logging/log4j/log4j-core/2.8.1/log4j-core-2.8.1.jar",
+					"sha1": "4ac28ff2f1ddf05dae3043a190451e8c46b73c31",
+					"size": 1402925
+					}
+				}
+			},
+		)
 		// libraries = libraries.filter(
 		// 	x => !x.name.value.startsWith("net.minecraft:launchwrapper:")
 		// 		&& x.name.group !== "net.sf.jopt-simple"
