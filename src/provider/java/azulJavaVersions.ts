@@ -19,7 +19,7 @@ export default defineProvider({
 		});
 
 		const versions = AzulJavaVersions.parse(
-			(await http.getCached(new URL("zulu/packages?" + versionsOptions, RUNTIMES_URL), "azul-java-windows-versions.json")).json()
+			(await http.getCached(new URL("zulu/packages?" + versionsOptions, RUNTIMES_URL), "java-windows-versions.json")).json()
 		);
 
 		const majorJavaVersions = [...new Set([...versions.map(x => x.java_version[0])])];
@@ -33,7 +33,7 @@ export default defineProvider({
 				java_package_type: "jre",
 				include_fields: ["sha256_hash", "build_date", "os", "arch", "hw_bitness"].join(",")
 			});
-			const response = await http.getCached(new URL("zulu/packages?" + runtimeOptions, RUNTIMES_URL), `azul-java-runtime-${version}.json`)
+			const response = await http.getCached(new URL("zulu/packages?" + runtimeOptions, RUNTIMES_URL), `java-runtime-${version}.json`)
 			return AzulJavaPackages.parse(response.json())
 		}));
 	},
