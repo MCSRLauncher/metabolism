@@ -32,6 +32,8 @@ export default defineGoal({
 				releaseTime: entries.at(-1)!.version.released.toISOString(),
 
 				runtimes: entries.map(transformRuntime)
+					// Filter linux-i386, exclude old-32bit hardwares
+					.filter(x => x.runtimeOS.endsWith('i386'))
 			});
 		}
 
