@@ -1,3 +1,4 @@
+import { recommendedJavaVersions } from "#common/constants/java.ts";
 import { setIfAbsent } from "#common/general.ts";
 import { defineGoal, type VersionOutput } from "#core/goal.ts";
 import mojangJavaVersions from "#provider/java/mojangJavaVersions.ts";
@@ -36,7 +37,7 @@ export default defineGoal({
 
 		return result;
 	},
-	recommend: () => false,
+	recommend: (_, output) => recommendedJavaVersions.includes(+output.version.replace(/[^0-9]/g, "")),
 });
 
 type FullRuntimeInfo = PistonJavaRuntimeEntry & { os: string; name: string; };
