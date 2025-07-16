@@ -33,7 +33,7 @@ export default defineGoal({
 
 				runtimes: entries.map(transformRuntime)
 					// Filter linux-i386, exclude old-32bit hardwares
-					.filter(x => x.runtimeOS.endsWith('i386'))
+					.filter(x => !x.runtimeOS.endsWith('i386'))
 			});
 		}
 
