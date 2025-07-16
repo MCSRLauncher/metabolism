@@ -7,7 +7,7 @@ import { orderBy } from "es-toolkit";
 
 export default defineGoal({
 	id: "net.adoptium.java",
-	name: "Adoptium Provided Java",
+	name: "Adoptium Java",
 	provider: adoptiumJavaVersions,
 
 	generate(info): VersionOutput[] {

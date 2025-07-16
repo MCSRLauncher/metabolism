@@ -7,7 +7,7 @@ import { orderBy } from "es-toolkit";
 
 export default defineGoal({
 	id: "net.minecraft.java",
-	name: "Mojang Provided Java",
+	name: "Vanilla(Mojang) Java",
 	provider: mojangJavaVersions,
 
 	generate(info) {

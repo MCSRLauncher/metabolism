@@ -7,7 +7,7 @@ import { orderBy } from "es-toolkit";
 
 export default defineGoal({
 	id: "com.azul.java",
-	name: "Azul Provided Java",
+	name: "Azul Java",
 	provider: azulJavaVersions,
 
 	generate(info): VersionOutput[] {
