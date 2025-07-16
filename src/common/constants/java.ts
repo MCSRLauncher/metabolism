@@ -1,3 +1,3 @@
-export const recommendedJavaVersions = [21, 17, 16, 14, 12, 8];
+export const recommendedJavaVersions = [21, 17, 16, 8];
 
 export const excludedRuntimeOS = ["linux-i386", "windows-x32", "linux-x32", "mac-os-x32"];
