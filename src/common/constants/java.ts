@@ -1,1 +1,1 @@
-export const recommendedJavaVersions = [21, 17, 8];
+export const recommendedJavaVersions = [21, 17, 16, 14, 12, 8];
