@@ -1,4 +1,4 @@
-import { recommendedJavaVersions } from "#common/constants/java.ts";
+import { excludedRuntimeOS, recommendedJavaVersions } from "#common/constants/java.ts";
 import { setIfAbsent } from "#common/general.ts";
 import { defineGoal, type VersionOutput } from "#core/goal.ts";
 import mojangJavaVersions from "#provider/java/mojangJavaVersions.ts";
@@ -32,8 +32,7 @@ export default defineGoal({
 				releaseTime: entries.at(-1)!.version.released.toISOString(),
 
 				runtimes: entries.map(transformRuntime)
-					// Filter linux-i386, exclude old-32bit hardwares
-					.filter(x => !x.runtimeOS.endsWith('i386'))
+					.filter(x => !excludedRuntimeOS.includes(x.runtimeOS))
 			});
 		}
 

@@ -1,4 +1,4 @@
-import { recommendedJavaVersions } from "#common/constants/java.ts";
+import { excludedRuntimeOS, recommendedJavaVersions } from "#common/constants/java.ts";
 import { setIfAbsent } from "#common/general.ts";
 import { defineGoal, type VersionOutput } from "#core/goal.ts";
 import azulJavaVersions from "#provider/java/azulJavaVersions.ts";
@@ -35,6 +35,7 @@ export default defineGoal({
 				releaseTime: entries.at(-1)!.build_date.toISOString(),
 
 				runtimes: entries.map(transformRuntime)
+					.filter(x => !excludedRuntimeOS.includes(x.runtimeOS))
 			});
 		}
 
