@@ -24,3 +24,4 @@ export const QUILT_MAVEN = "https://maven.quiltmc.org/repository/release/";
 
 export const ADOPTIUM_API = "https://api.adoptium.net/";
 export const AZUL_API = "https://api.azul.com/metadata/";
+export const GRAALVM_API = "https://api.github.com/repos/graalvm/graalvm-ce-builds/";
