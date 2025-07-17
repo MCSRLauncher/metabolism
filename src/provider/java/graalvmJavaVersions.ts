@@ -33,6 +33,10 @@ export default defineProvider({
 
 
 function isAvailableAsset(entry: GraalVMJavaAsset, array: GraalVMJavaAsset[]): boolean {
+	if (entry.created_at.getFullYear() < 2023) {
+		return false;
+	}
+
 	if (!entry.digest && !entry.name.endsWith(".sha256") && !array.find(x => `${entry.name}.sha256` == x.name)) {
 		return false
 	}
