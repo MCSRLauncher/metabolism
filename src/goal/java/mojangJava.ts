@@ -55,7 +55,7 @@ function transformRuntime(entry: FullRuntimeInfo): VersionFileRuntime {
 		: entry.os;
 
 	return {
-		name: entry.name,
+		name: entry.name + "-" + entry.version.name,
 		runtimeOS: os,
 
 		version: {
