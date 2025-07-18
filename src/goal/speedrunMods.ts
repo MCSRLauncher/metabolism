@@ -9,7 +9,7 @@ export default defineGoal({
     generate(info): VersionOutput[] {
         const date = new Date();
         return [{
-            version: `1.0+verified`,
+            version: `${date.getUTCFullYear()}.${date.getUTCMonth() + 1}.${date.getUTCDate()}+verified`,
             releaseTime: date.toISOString(),
             mods: info.mods
         }];
