@@ -1,6 +1,5 @@
 import { defineGoal, type VersionOutput } from "#core/goal.ts";
 import speedrunModVersions from "#provider/speedrunModVersions.ts";
-import type { SpeedrunModIndexes } from "#schema/speedrun/modsIndex.ts";
 
 export default defineGoal({
     id: "org.mcsr.mods",
