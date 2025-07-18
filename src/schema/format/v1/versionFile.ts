@@ -1,4 +1,5 @@
 import { PistonArtifact, PistonLibrary, type PistonLoggingAsset, type PistonAssetIndexRef } from "#schema/pistonMeta/pistonVersion.ts";
+import type { SpeedrunModIndex } from "#schema/speedrun/modsIndex.ts";
 
 export interface VersionFile {
 	uid: string;
@@ -33,6 +34,9 @@ export interface VersionFile {
 	// For intermediary
 	compatibleIntermediaries?: string[];
 	intermediaryLibraries?: Record<string, VersionFileLibrary>;
+
+	// For Speedrun mods
+	mods?: SpeedrunModIndex[];
 }
 
 export type VersionFileArtifact = Omit<PistonArtifact, "path">;

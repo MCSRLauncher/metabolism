@@ -3,7 +3,7 @@ import { setIfAbsent } from "#common/general.ts";
 import { defineGoal, type VersionOutput } from "#core/goal.ts";
 import graalvmJavaVersions from "#provider/java/graalvmJavaVersions.ts";
 import type { VersionFileRuntime } from "#schema/format/v1/versionFile.ts";
-import type { GraalVMJavaAsset, GraalVMJavaVersion, GraalVMJavaVersions } from "#schema/java/graalvmJavaData.ts";
+import type { GraalVMJavaAsset } from "#schema/java/graalvmJavaData.ts";
 import { orderBy } from "es-toolkit";
 
 export default defineGoal({
