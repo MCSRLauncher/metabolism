@@ -8,15 +8,12 @@ export default defineGoal({
     provider: speedrunModVersions,
 
     generate(info): VersionOutput[] {
-		const result: VersionOutput[] = [];
-        for (const mod of info.mods) {
-            result.push()
-        }
+        const date = new Date();
         return [{
-            version: "verified",
-            releaseTime: new Date().toISOString(),
+            version: `${date.getUTCFullYear()}.${date.getUTCMonth() + 1}.${date.getUTCDate()}+verified`,
+            releaseTime: date.toISOString(),
             mods: info.mods
         }];
     },
-    recommend: (_, output) => false,
+    recommend: () => false,
 })
