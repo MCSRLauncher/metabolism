@@ -33,6 +33,7 @@ export const AdoptiumJavaRuntimeEntry = z.object({
 		major: z.int32(),
 		minor: z.int32(),
 		security: z.int32(),
+		patch: z.int32(),
 		build: z.int32()
 	})
 });

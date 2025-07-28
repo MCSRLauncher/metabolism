@@ -87,6 +87,7 @@ export interface VersionFileRuntime {
 		major: number;
 		minor?: number;
 		security?: number;
+		patch?: number;
 		build?: number;
 	};
 	releaseTime: string;
