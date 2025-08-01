@@ -56,11 +56,6 @@ export type VersionFileLibrary = Omit<PistonLibrary, "name" | "downloads" | "nat
 	};
 
 	natives?: Partial<Record<VersionFilePlatform, string>>;
-
-	"MMC-hint"?: string,
-	"MMC-absoluteUrl"?: string,
-	"MMC-filename"?: string,
-	"MMC-displayname"?: string,
 };
 
 export interface VersionFileDependency {

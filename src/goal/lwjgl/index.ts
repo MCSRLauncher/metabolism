@@ -3,13 +3,13 @@ import { isLWJGL2, isLWJGL2Dependency, isLWJGL3 } from "#common/transformation/m
 import { isPlatformLibrary, transformPistonArtifact } from "#common/transformation/pistonMeta.ts";
 import { defineGoal, type VersionOutput } from "#core/goal.ts";
 import { moduleLogger } from "#core/logger.ts";
+import { replaceLibraries } from "#goal/natives/extraNatives.ts";
 import pistonMetaGameVersions from "#provider/gameVersions/index.ts";
 import type { VersionFileArtifact, VersionFileDependency, VersionFileLibrary, VersionFilePlatform } from "#schema/format/v1/versionFile.ts";
 import { MavenArtifactRef } from "#schema/mavenArtifactRef.ts";
 import { PistonVersion } from "#schema/pistonMeta/pistonVersion.ts";
 import { omit } from "es-toolkit";
 import { isEmpty } from "es-toolkit/compat";
-import { LWJGL_EXTRA_NATIVES } from "./extraNatives.ts";
 
 const logger = moduleLogger();
 
@@ -119,11 +119,6 @@ function generate(data: PistonVersion[], conflictUIDs: string[], filter: Version
 		}
 	}
 
-	sharedDeps.values().forEach(patchModule);
-
-	for (const version of versions.values())
-		version.modules.forEach(patchModule);
-
 	const conflicts: VersionFileDependency[] = conflictUIDs.map(uid => ({ uid }));
 	const result = versions.entries()
 		.filter(([_, version]) => version.used)
@@ -143,26 +138,14 @@ function generate(data: PistonVersion[], conflictUIDs: string[], filter: Version
 				conflicts,
 				volatile: true,
 
-				libraries: [
+				libraries: replaceLibraries([
 					...sharedDeps.values().flatMap(transformModule),
 					...version.modules.values().flatMap(transformModule),
-				]
+				])
 			};
 		});
 
 	return [...result];
-}
-
-function patchModule(module: LWJGLModule): void {
-	const name = module.baseName.value;
-
-	if (!Object.hasOwn(LWJGL_EXTRA_NATIVES, name))
-		return;
-
-	const patches = LWJGL_EXTRA_NATIVES[name]!;
-
-	for (const [platform, artifact] of Object.entries(patches))
-		setIfAbsent(module.nativeCode, platform as keyof typeof LWJGL_EXTRA_NATIVES[string], artifact);
 }
 
 function transformModuleMerged(module: LWJGLModule): VersionFileLibrary[] {

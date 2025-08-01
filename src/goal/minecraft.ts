@@ -4,8 +4,8 @@ import { isPlatformLibrary, transformArgs, transformPistonLibrary } from "#commo
 import { defineGoal, type VersionOutput } from "#core/goal.ts";
 import pistonMetaGameVersions from "#provider/gameVersions/index.ts";
 import { VersionFileTrait, type VersionFileDependency } from "#schema/format/v1/versionFile.ts";
-import { MavenArtifactRef } from "#schema/mavenArtifactRef.ts";
 import type { PistonLibrary, PistonVersion } from "#schema/pistonMeta/pistonVersion.ts";
+import { replaceLibraries } from "./natives/extraNatives.ts";
 
 export default defineGoal({
 	id: "net.minecraft",
@@ -71,7 +71,7 @@ function transformVersion(version: PistonVersion): VersionOutput {
 		},
 		logging: version.logging?.client,
 		assetIndex: version.assetIndex,
-		libraries: libraries.map(transformPistonLibrary),
+		libraries: replaceLibraries(libraries.map(transformPistonLibrary)),
 	};
 }
 
