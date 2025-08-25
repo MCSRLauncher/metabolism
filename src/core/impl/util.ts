@@ -24,6 +24,19 @@ export async function deleteFileIfExists(path: string): Promise<boolean> {
 	}
 }
 
+export async function deleteDirIfExists(path: string): Promise<boolean> {
+    try {
+        await rm(path, { recursive: true, force: true });
+
+        return true;
+    } catch (error) {
+        if (!isENOENT(error))
+			throw error;
+
+        return false;
+    }
+}
+
 export function isENOENT(error: unknown) {
 	if (!(error instanceof Error && "code" in error && typeof "code" === "string"))
 		return false;

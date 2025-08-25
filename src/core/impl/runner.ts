@@ -10,7 +10,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { DiskCachedClient } from "./http/diskCachedClient.ts";
 import { GOALS } from "./registry.ts";
-import { digest } from "./util.ts";
+import { deleteDirIfExists, deleteFileIfExists, digest } from "./util.ts";
 
 const logger = moduleLogger();
 
@@ -56,6 +56,7 @@ async function run(providers: Set<Provider>, dependents: Map<Provider, Goal[]>, 
 
 	const goalResults: [Goal, string][] = [];
 
+	await deleteDirIfExists(options.outputDir)
 	await Promise.all(providers.values().map(async provider => {
 		const data = await runProvider(provider, options);
 
