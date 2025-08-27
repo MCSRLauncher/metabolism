@@ -5,7 +5,7 @@ import { defineGoal, type VersionOutput } from "#core/goal.ts";
 import pistonMetaGameVersions from "#provider/gameVersions/index.ts";
 import { VersionFileTrait, type VersionFileDependency } from "#schema/format/v1/versionFile.ts";
 import type { PistonLibrary, PistonVersion } from "#schema/pistonMeta/pistonVersion.ts";
-import { replaceLibraries } from "./natives/extraNatives.ts";
+import { replaceLibraries } from "./packs/extraNatives.ts";
 
 export default defineGoal({
 	id: "net.minecraft",

@@ -3,7 +3,7 @@ import { isLWJGL2, isLWJGL2Dependency, isLWJGL3 } from "#common/transformation/m
 import { isPlatformLibrary, transformPistonArtifact } from "#common/transformation/pistonMeta.ts";
 import { defineGoal, type VersionOutput } from "#core/goal.ts";
 import { moduleLogger } from "#core/logger.ts";
-import { replaceLibraries } from "#goal/natives/extraNatives.ts";
+import { replaceLibraries } from "#goal/packs/extraNatives.ts";
 import pistonMetaGameVersions from "#provider/gameVersions/index.ts";
 import type { VersionFileArtifact, VersionFileDependency, VersionFileLibrary, VersionFilePlatform } from "#schema/format/v1/versionFile.ts";
 import { MavenArtifactRef } from "#schema/mavenArtifactRef.ts";
