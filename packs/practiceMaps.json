@@ -53,6 +53,7 @@
 	{
 		"type": "github",
 		"target": "Mescht/BTPractice",
+		"regex": "BTPractice-Map_.*\\.zip",
 		"name": "BTPractice",
 		"authors": ["Mescht"],
 		"description": "Map / Datapack to practice Mapless Buried Treasure",

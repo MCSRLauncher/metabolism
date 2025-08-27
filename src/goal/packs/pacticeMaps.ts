@@ -7,6 +7,7 @@ import rawMaps from "../../../packs/practiceMaps.json" with { type: "json" }
 interface PracticeMapInfo {
 	type: string,
 	target: string,
+	regex?: string,
 	targetVersion?: string,
 	name: string,
 	authors: string[],
@@ -25,7 +26,7 @@ const providor = defineProvider({
 					(await http.getCached(new URL(`https://api.github.com/repos/${map.target}/releases/${map.targetVersion ? `tags/${map.targetVersion}` : "latest"}`), `practicemap-${map.type}-${map.target.replace("/", "_")}.json`)).json()
 				).assets;
 
-				const targetZip = assets.find(a => a.content_type == "application/x-zip-compressed");
+				const targetZip = assets.find(a => a.content_type == "application/x-zip-compressed" && (!map.regex || new RegExp(map.regex).test(a.name)));
 				if (!targetZip) return null;
 
 				return {
