@@ -1,6 +1,7 @@
 import type { VersionFileLibrary } from "#schema/format/v1/versionFile.ts";
 import { deepEquals } from "bun";
-import rawNatives from "./extraNatives.json" with { type: "json" }
+import rawNatives from "../../../packs/extraNatives.json" with { type: "json" }
+// extraNatives from https://github.com/PrismLauncher/meta/blob/main/meta/common/mojang-library-patches.json
 
 export default "skip";
 
