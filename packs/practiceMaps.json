@@ -6,7 +6,7 @@
 		"authors": ["Llama"],
 		"description": "A Minecraft bastion practice map for speedrunners",
 		"versions": [
-			"1.16.1"
+			"1.16.x"
 		]
 	},
 	{
@@ -16,7 +16,7 @@
 		"authors": ["Mescht"],
 		"description": "Map for practicing Zero Cycles in Minecraft Speedruns",
 		"versions": [
-			"1.16.1"
+			"1.16.x"
 		]
 	},
 	{
@@ -26,7 +26,7 @@
 		"authors": ["Ryguy2k4"],
 		"description": "Practice map for one-cycling and end fights",
 		"versions": [
-			"1.16.1"
+			"1.16.x"
 		]
 	},
 	{
@@ -37,7 +37,7 @@
 		"authors": ["Ryguy2k4"],
 		"description": "Practice map for one-cycling and end fights",
 		"versions": [
-			"1.15.2"
+			"1.15.x"
 		]
 	},
 	{
@@ -47,7 +47,7 @@
 		"authors": ["Semperzz"],
 		"description": "Practice fighting blazes (with fortress blaze spawner)",
 		"versions": [
-			"1.16.1"
+			"1.16.x"
 		]
 	},
 	{
@@ -58,7 +58,7 @@
 		"authors": ["Mescht"],
 		"description": "Map / Datapack to practice Mapless Buried Treasure",
 		"versions": [
-			"1.16.1"
+			"1.16.x"
 		]
 	},
 	{
@@ -68,7 +68,7 @@
 		"authors": ["Semperzz", "Fyroah", "Bugbu6"],
 		"description": "Practice crafting sequences",
 		"versions": [
-			"1.16.1"
+			"1.16.x"
 		]
 	},
 	{
@@ -78,7 +78,7 @@
 		"authors": ["7rowl"],
 		"description": "Practice crafting sequences for search crafting",
 		"versions": [
-			"1.16.1"
+			"1.16.x"
 		]
 	},
 	{
@@ -88,7 +88,7 @@
 		"authors": ["Semperzz"],
 		"description": "Portal Build Practice Map",
 		"versions": [
-			"1.16.1"
+			"1.16.x"
 		]
 	},
 	{
@@ -98,7 +98,7 @@
 		"authors": ["Ontricus"],
 		"description": "A practice map for village house looting and TNT for 1.15 speedruns.",
 		"versions": [
-			"1.15.2"
+			"1.15.x"
 		]
 	}
 ]
