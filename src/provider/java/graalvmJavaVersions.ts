@@ -1,16 +1,16 @@
 import { GRAALVM_API } from "#common/constants/urls.ts";
 import { defineProvider } from "#core/provider.ts";
-import { GraalVMJavaAsset, GraalVMJavaVersions } from "#schema/java/graalvmJavaData.ts";
+import { GitHubReleaseAsset, GitHubReleases } from "#schema/githubReleaseRef.ts";
 
 export default defineProvider({
 	id: "graalvm-java",
 
-	async provide(http): Promise<GraalVMJavaVersions> {
+	async provide(http): Promise<GitHubReleases> {
 		const versionsOptions = new URLSearchParams({
 			per_page: "100",
 		});
 
-		const versions = GraalVMJavaVersions.parse(
+		const versions = GitHubReleases.parse(
 			(await http.getCached(new URL("releases?" + versionsOptions, GRAALVM_API), "java-runtime-versions.json")).json()
 		);
 
@@ -32,7 +32,7 @@ export default defineProvider({
 })
 
 
-function isAvailableAsset(entry: GraalVMJavaAsset, array: GraalVMJavaAsset[]): boolean {
+function isAvailableAsset(entry: GitHubReleaseAsset, array: GitHubReleaseAsset[]): boolean {
 	if (entry.created_at.getFullYear() < 2023) {
 		return false;
 	}

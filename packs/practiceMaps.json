@@ -1,0 +1,103 @@
+[
+	{
+		"type": "github",
+		"target": "LlamaPag/bastion",
+		"name": "Bastion Practice",
+		"authors": ["Llama"],
+		"description": "A Minecraft bastion practice map for speedrunners",
+		"versions": [
+			"1.16.1"
+		]
+	},
+	{
+		"type": "github",
+		"target": "Mescht/Zero-Practice",
+		"name": "Zero Practice",
+		"authors": ["Mescht"],
+		"description": "Map for practicing Zero Cycles in Minecraft Speedruns",
+		"versions": [
+			"1.16.1"
+		]
+	},
+	{
+		"type": "github",
+		"target": "ryguy2k4/ryguy2k4endpractice",
+		"name": "End Practice",
+		"authors": ["Ryguy2k4"],
+		"description": "Practice map for one-cycling and end fights",
+		"versions": [
+			"1.16.1"
+		]
+	},
+	{
+		"type": "github",
+		"target": "ryguy2k4/ryguy2k4endpractice",
+		"targetVersion": "v3.2.0",
+		"name": "End Practice",
+		"authors": ["Ryguy2k4"],
+		"description": "Practice map for one-cycling and end fights",
+		"versions": [
+			"1.15.2"
+		]
+	},
+	{
+		"type": "github",
+		"target": "Semperzz/Blaze-Practice",
+		"name": "Blaze Practice",
+		"authors": ["Semperzz"],
+		"description": "Practice fighting blazes (with fortress blaze spawner)",
+		"versions": [
+			"1.16.1"
+		]
+	},
+	{
+		"type": "github",
+		"target": "Mescht/BTPractice",
+		"name": "BTPractice",
+		"authors": ["Mescht"],
+		"description": "Map / Datapack to practice Mapless Buried Treasure",
+		"versions": [
+			"1.16.1"
+		]
+	},
+	{
+		"type": "github",
+		"target": "Semperzz/Crafting-Practice-v2",
+		"name": "Crafting Practice v2",
+		"authors": ["Semperzz", "Fyroah", "Bugbu6"],
+		"description": "Practice crafting sequences",
+		"versions": [
+			"1.16.1"
+		]
+	},
+	{
+		"type": "github",
+		"target": "7rowl/Search-Crafting-Practice",
+		"name": "Search Crafting Practice",
+		"authors": ["7rowl"],
+		"description": "Practice crafting sequences for search crafting",
+		"versions": [
+			"1.16.1"
+		]
+	},
+	{
+		"type": "github",
+		"target": "Semperzz/Portal-Practice",
+		"name": "Portal Practice",
+		"authors": ["Semperzz"],
+		"description": "Portal Build Practice Map",
+		"versions": [
+			"1.16.1"
+		]
+	},
+	{
+		"type": "github",
+		"target": "ontricus/1.15-Village-House-Practice",
+		"name": "Village House Practice",
+		"authors": ["Ontricus"],
+		"description": "A practice map for village house looting and TNT for 1.15 speedruns.",
+		"versions": [
+			"1.15.2"
+		]
+	}
+]

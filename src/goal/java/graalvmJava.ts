@@ -3,7 +3,7 @@ import { setIfAbsent } from "#common/general.ts";
 import { defineGoal, type VersionOutput } from "#core/goal.ts";
 import graalvmJavaVersions from "#provider/java/graalvmJavaVersions.ts";
 import type { VersionFileRuntime } from "#schema/format/v1/versionFile.ts";
-import type { GraalVMJavaAsset } from "#schema/java/graalvmJavaData.ts";
+import type { GitHubReleaseAsset } from "#schema/githubReleaseRef.ts";
 import { orderBy } from "es-toolkit";
 
 export default defineGoal({
@@ -14,7 +14,7 @@ export default defineGoal({
 	generate(info): VersionOutput[] {
 		const result: VersionOutput[] = [];
 
-		const majorVersions: Map<number, GraalVMJavaAsset[]> = new Map;
+		const majorVersions: Map<number, GitHubReleaseAsset[]> = new Map;
 
 		for (const entry of info) {
 			if (!entry.draft && !entry.prerelease && entry.tag_name.startsWith("jdk-")) {
@@ -47,7 +47,7 @@ export default defineGoal({
 	recommend: (_, output) => recommendedJavaVersions.includes(+output.version.replace(/[^0-9]/g, "")),
 });
 
-function getOSType(entry: GraalVMJavaAsset): string {
+function getOSType(entry: GitHubReleaseAsset): string {
 	let osName = "";
 	if (entry.name.includes("linux")) {
 		osName = "linux";
@@ -70,7 +70,7 @@ function getOSType(entry: GraalVMJavaAsset): string {
 	return `${osName}-${architecture}`;
 }
 
-function transformRuntime(entry: GraalVMJavaAsset): VersionFileRuntime {
+function transformRuntime(entry: GitHubReleaseAsset): VersionFileRuntime {
 	const version = entry.name.split("jdk-")[1]?.split("_")[0]?.split(".").map(x => +x)!!;
 	const vendor = "oracle";
 	const name = `${vendor}_graalvm_jdk${version[0]}.${version[1]}.${version[2]}`;
