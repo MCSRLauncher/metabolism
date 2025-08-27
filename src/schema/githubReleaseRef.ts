@@ -7,6 +7,7 @@ export const GitHubReleaseAsset = z.object({
 	created_at: z.coerce.date(),
 	browser_download_url: z.string(),
 	content_type: z.string(),
+	size: z.int(),
 });
 
 export type GitHubReleaseAsset = z.output<typeof GitHubReleaseAsset>;

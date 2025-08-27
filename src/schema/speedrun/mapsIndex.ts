@@ -6,7 +6,8 @@ export const SpeedrunMapIndex = z.object({
 	authors: z.array(z.string()),
 	sources: z.string(),
 	versions: z.array(z.string()),
-	downloadUrl: z.string()
+	downloadUrl: z.string(),
+	downloadSize: z.int()
 });
 
 export type SpeedrunMapIndex = z.output<typeof SpeedrunMapIndex>;

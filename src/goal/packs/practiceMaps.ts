@@ -54,9 +54,10 @@ export default defineGoal({
 				name: mapInfo.map.name,
 				description: mapInfo.map.description,
 				authors: mapInfo.map.authors,
-				downloadUrl: mapInfo.res.browser_download_url,
 				sources: mapInfo.source,
 				versions: mapInfo.map.versions,
+				downloadUrl: mapInfo.res.browser_download_url,
+				downloadSize: mapInfo.res.size,
 			})
 		}
 
