@@ -11,6 +11,13 @@ export default defineProvider({
 
 async function provide(http: HTTPClient, meta: string | URL): Promise<SpeedrunModIndexes> {
     const list = SpeedrunModIndexes.parse((await http.getCached(meta, "mod-versions.json")).json());
+	list.mods = list.mods.map(mod => {
+		mod.versions = mod.versions.map(v => {
+			v.filename = v.url.split("/").splice(-1)[0]!!
+			return v;
+		});
+		return mod;
+	});
     return list;
 }
 

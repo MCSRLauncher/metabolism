@@ -6,6 +6,7 @@ export const SpeedrunModVersion = z.object({
     version: z.string(),
     url: z.string(),
     hash: z.string(),
+    filename: z.string().default(""),
     obsolete: z.boolean().optional(),
     intermediary: z.array(z.string())
 });
