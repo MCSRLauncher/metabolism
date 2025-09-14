@@ -8,6 +8,7 @@ export const SpeedrunModVersion = z.object({
     hash: z.string(),
     filename: z.string().default(""),
     obsolete: z.boolean().optional(),
+    priority: z.number().optional(),
     intermediary: z.array(z.string())
 });
 
@@ -23,7 +24,8 @@ export const SpeedrunModIndex = z.object({
     traits: z.array(z.string()).optional(),
     incompatibilities: z.array(z.string()).optional(),
     recommended: z.boolean().optional(),
-    obsolete: z.boolean().optional()
+    obsolete: z.boolean().optional(),
+    priority: z.number().optional()
 });
 
 export type SpeedrunModIndex = z.output<typeof SpeedrunModIndex>;
