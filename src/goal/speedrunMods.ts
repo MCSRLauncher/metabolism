@@ -1,6 +1,9 @@
 import { defineGoal, type VersionOutput } from "#core/goal.ts";
 import speedrunModVersions from "#provider/speedrunModVersions.ts";
-import type { SpeedrunModIndex } from "#schema/speedrun/modsIndex.ts";
+import type { SpeedrunModIndex, SpeedrunModVersion } from "#schema/speedrun/modsIndex.ts";
+import rawOptifines from "../../packs/optifine.json" with { type: "json" }
+
+const optifineVersions: SpeedrunModVersion[] = rawOptifines as SpeedrunModVersion[];
 
 export default defineGoal({
     id: "org.mcsr.mods",
@@ -10,6 +13,14 @@ export default defineGoal({
     generate(info): VersionOutput[] {
 		const standardSettingsId = "standardsettings";
 		const defaultMCSRRankedMods = ["antigone", "fast_reset", "krypton", "lazydfu", "lazystronghold", "lithium", "sodium", "sodiummac", "sodiummac", "starlight", "voyager", "speedrunapi", "antiresourcereload", "state-output", "speedrunigt", "boundlesswindow", "retino"];
+
+		info.mods.push({
+			modid: "optifine",
+			name: "OptiFine",
+			description: "Minecraft optimization mod for legacy versions",
+			sources: "https://optifine.net/",
+			versions: optifineVersions
+		})
 
         return [
 			getMods("verified", info.mods),

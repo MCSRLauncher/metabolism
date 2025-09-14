@@ -1,0 +1,156 @@
+[
+	{
+		"version": "1.14.4_HD_U_G5",
+		"target_version": [ "1.14.4" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.14.4_HD_U_G5.jar",
+		"hash": "580ea34d0d67bc7372b3ad3655a237d23c4ff49f6ea3b29103cac96742d19471ece7351a939ee3694cdcc3615dfbfc868372e048d7d33c24961d11cde44fd483",
+		"intermediary": []
+	},
+	{
+		"version": "1.14.3_HD_U_F2",
+		"target_version": [ "1.14.3" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.14.3_HD_U_F2.jar",
+		"hash": "09b3fde37f1d45300f4acbeccfe32dc3c43100ab79e6071be96bfa7fa776d75cf111634cec5720636965549c4abe8bbdf813bc260d1768b164b32a8cc51afc41",
+		"intermediary": []
+	},
+	{
+		"version": "1.14.2_HD_U_F1",
+		"target_version": [ "1.14.2" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.14.2_HD_U_F1.jar",
+		"hash": "9a11e18668c557c105dfb68eeda6bbb4eae3d21ad8fec7f9919022d5c97eb4fb9f1f814e6f8818c72ec9b6b63f652ff3ea97e0e165703f51d03973825279ed89",
+		"intermediary": []
+	},
+	{
+		"version": "1.13.2_HD_U_G5",
+		"target_version": [ "1.13.2" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.13.2_HD_U_G5.jar",
+		"hash": "35595306b44beafddddfa359520888a9651f76a4c06e321a1c21813af618cdbf913a2ec178c83cfee419fbf22be5137f38efbae6222f2294596f2ea70e12b15c",
+		"intermediary": []
+	},
+	{
+		"version": "1.13.1_HD_U_E4",
+		"target_version": [ "1.13.1" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.13.1_HD_U_E4.jar",
+		"hash": "e45da986d0ca2abb3c1af6cccf81bd59d62ebe7bfc9e903fe7b22233471a5e6965b20282566e83d4aa94540cf949814adc293f96cda87084f5691598b7ad6248",
+		"intermediary": []
+	},
+	{
+		"version": "1.13_HD_U_E4",
+		"target_version": [ "1.13" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.13_HD_U_E4.jar",
+		"hash": "691bb5a68760ac91c4c52c93e614e06119ce73022a1bfc043284b80a7fa37a62d88ba9ea246a69729386202ba728297dfb7e93d832f83cd6c1f8d7c7739b5221",
+		"intermediary": []
+	},
+	{
+		"version": "1.12.2_HD_U_G5",
+		"target_version": [ "1.12.2" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.12.2_HD_U_G5.jar",
+		"hash": "74dc59c52b1d7b7f7b5b813f0037d36d1269237f1acc2e7665c0dc45b1a55ee400c28112edff2489bf753fd1a5d649623493db0c2298ba5d52907dfc1f7aef38",
+		"intermediary": []
+	},
+	{
+		"version": "1.12.1_HD_U_G5",
+		"target_version": [ "1.12.1" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.12.1_HD_U_G5.jar",
+		"hash": "b4b19bba0fd3da9befd877205ed52034c5a225b8c335f15e7497ff1e81b88b1af7abc379d1eb3575fe1a7aa9e7663566e5677ed910154eccb63fb299ae6ceddf",
+		"intermediary": []
+	},
+	{
+		"version": "1.12_HD_U_G5",
+		"target_version": [ "1.12" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.12_HD_U_G5.jar",
+		"hash": "be2ffe7d3b11635004d5440dc05c84e7f0ceb003a86f7a71d92276a0e3cb376dd2f3852603926efd00857f5011f614a555da943f5d15df0c2a8172b3a115403f",
+		"intermediary": []
+	},
+	{
+		"version": "1.11.2_HD_U_G5",
+		"target_version": [ "1.11.2" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.11.2_HD_U_G5.jar",
+		"hash": "b29315859a00eff1995fd2e0e05b698d4da54b7a8e217b8cfe8dfbcd1a56c2c53a56cbfb41fb1b1aa7a328a9ba5063cc814433e4329f4ea0660d01b7ab262a27",
+		"intermediary": []
+	},
+	{
+		"version": "1.11_HD_U_G5",
+		"target_version": [ "1.11" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.11_HD_U_G5.jar",
+		"hash": "eae6378a3eea1bbd91ceb0646e1881dc57630c1de41bdadb6c1a642a6c1a202aafef771300aa46c94e5f44e7db9254f7d78156b34b1e79d70fde46cf9ca75a2f",
+		"intermediary": []
+	},
+	{
+		"version": "1.10.2_HD_U_I5",
+		"target_version": [ "1.10.2" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.10.2_HD_U_I5.jar",
+		"hash": "4625d50359f17ea9bd3d9a783cc9808d1e26c7d90359da9f8849dbff96cb4e7b3db8af3b3aeea7294549fe860145395b9d5336670e5c7e1727d7dcf04a104126",
+		"intermediary": []
+	},
+	{
+		"version": "1.10_HD_U_I5",
+		"target_version": [ "1.10" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.10_HD_U_I5.jar",
+		"hash": "0a5c6a3a73cd927e433de98cdf678ece20f40948e7189e6f169553d5d17e41ae4249683e3303ab99f45de6dd01a7926e162a82e47ab0a57021eaf4e3c0da7938",
+		"intermediary": []
+	},
+	{
+		"version": "1.9.4_HD_U_I5",
+		"target_version": [ "1.9.4" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.9.4_HD_U_I5.jar",
+		"hash": "daabea38c6015a73695002581cea7e14433c44fcfd6721c760f6a58ec793966f886c0e2f173a7113740302a406d362494c469a1d3ee5886e2c40acac7175ba1c",
+		"intermediary": []
+	},
+	{
+		"version": "1.9.2_HD_U_E3",
+		"target_version": [ "1.9.2" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.9.2_HD_U_E3.jar",
+		"hash": "26d94b755a6a0cea7bb296e0e2a4c084d68ad7be3bcfed13fdab10576aae4fae7970a2a00de2dd4adec76c2e19a2c3fb7b68c31f70feeda58afed23bddc144ba",
+		"intermediary": []
+	},
+	{
+		"version": "1.9.0_HD_U_I5",
+		"target_version": [ "1.9" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.9.0_HD_U_I5.jar",
+		"hash": "7e01731cf9d1f62394be76cd39132c0e2a6631062ecda3814332db1c0dd3c81952e9747688a35d43eb2d58f054825bc1c8d703d2068863e7ed45cf7b42c16ea2",
+		"intermediary": []
+	},
+	{
+		"version": "1.8.9_HD_U_M5",
+		"target_version": [ "1.8.9" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.8.9_HD_U_M5.jar",
+		"hash": "459dd48fd88cbf3e91e7b02790e272279465978a5bde8e85409afa28cd1b0c9022195588afcc2f63acdec5688ac3e93adf7e9870da28548c3b1c292a598426de",
+		"intermediary": []
+	},
+	{
+		"version": "1.8.8_HD_U_I7",
+		"target_version": [ "1.8.8" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.8.8_HD_U_I7.jar",
+		"hash": "69cb228f78bad0f13455fd59cf0d54aa48beb065aa90832e060b4b7ab545bb99d8d58e089e4a37b47ff391fb488a1d305159a1c8fa028c4af5e007cc44d36dc5",
+		"intermediary": []
+	},
+	{
+		"version": "1.8.0_HD_U_I7",
+		"target_version": [ "1.8" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.8.0_HD_U_I7.jar",
+		"hash": "9eb6733c8a25f6c7059b05b43e1477ca17f9f98659384c9e72133acec4f7624781e6568319ac2f4acd4bc2abc9e5aca429611da22004c6502f9d89ed9ce75cb2",
+		"intermediary": []
+	},
+	{
+		"version": "1.7.10_HD_U_E7",
+		"target_version": [ "1.7.10" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.7.10_HD_U_E7.jar",
+		"hash": "faea0ff6c4ec9e2924c91ec4f88483c1a4fc03afc284cb4669310cb238e3c0d1a824e1c46104c09652b00f65e7d1a0bac0836833dfd71aa4d3194f16b9d0cf87",
+		"intermediary": []
+	},
+	{
+		"version": "1.7.2_HD_U_F7",
+		"target_version": [ "1.7.2" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.7.2_HD_U_F7.jar",
+		"hash": "f48990e2342afcc5a89a20e29f4239d9189a56d4c70fd79d8f22e20a85c25a7aed145c9424f243ee195db5e818425b05ffd8776de11a9e322bae5dae52123ac4",
+		"intermediary": []
+	},
+	{
+		"version": "1.6.4_HD_U_D1",
+		"target_version": [ "1.6.4" ],
+		"url": "https://optifine.net/download?f=OptiFine_1.6.4_HD_U_D1.jar",
+		"hash": "e702fafce0835776ad6b60423d5cdeb1ab7441614b82948a4927a05d08860cc277e277d5287d0f68fd61547b9254cdcbd6b205945632ce0e80089235e701cd1c",
+		"intermediary": []
+	}
+]
