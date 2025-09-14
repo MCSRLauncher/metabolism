@@ -14,6 +14,38 @@ interface ReplacementInfo {
 
 const natives: ReplacementInfo[] = rawNatives as ReplacementInfo[];
 
+function deepMerge(target: VersionFileLibrary, source: Partial<VersionFileLibrary>) {
+	if (source == null) return target;
+
+	for (const key of Object.keys(source)) {
+		const ours = target[key];
+		const theirs = source[key];
+
+		if (theirs == null) {
+			continue;
+		}
+
+		if (ours == null) {
+			target[key] = structuredClone(theirs);
+			continue;
+		}
+
+		if (Array.isArray(ours) && Array.isArray(theirs)) {
+			target[key] = ours.concat(theirs);
+		} else if (ours instanceof Set && theirs instanceof Set) {
+			target[key] = new Set([...ours, ...theirs]);
+		} else if (typeof ours === "object" &&typeof theirs === "object" &&!Array.isArray(ours) &&!(ours instanceof Set)) {
+			target[key] = deepMerge({ ...ours }, theirs);
+		} else if (ours &&typeof ours.merge === "function" &&theirs &&typeof theirs.merge === "function") {
+			ours.merge(theirs);
+		} else {
+			target[key] = structuredClone(theirs);
+		}
+	}
+
+	return target;
+}
+
 export function replaceLibraries(libraries: VersionFileLibrary[]) {
 	const updates = [...libraries];
 
@@ -24,7 +56,7 @@ export function replaceLibraries(libraries: VersionFileLibrary[]) {
 		for (const patch of natives) {
 			if (patch.match.includes(target.name)) {
 				if (patch.override) {
-					Object.assign(target, patch.override);
+					deepMerge(target, patch.override);
 				}
 
 				if (patch.additionalLibraries) {
