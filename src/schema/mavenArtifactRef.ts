@@ -10,6 +10,10 @@ export const MavenArtifactRef = z.string().transform((name, context) => {
 		return z.NEVER;
 	}
 
+	if (classifier?.endsWith("-patch")) {
+		return new MavenArtifactRef_(groupID, artifactID + "-" + classifier, version) as MavenArtifactRef;
+	}
+
 	return new MavenArtifactRef_(groupID, artifactID, version, classifier) as MavenArtifactRef;
 });
 

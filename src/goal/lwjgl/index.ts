@@ -87,6 +87,9 @@ function generate(data: PistonVersion[], conflictUIDs: string[], filter: Version
 
 				if (classifier) {
 					const platform = mapClassifier(classifier);
+					if (lib.name.artifact == 'lwjgl-freetype' && classifier.endsWith('-patch')) {
+						console.log(JSON.stringify(lib, null, 4))
+					}
 
 					if (platform)
 						setIfAbsent(module.nativeCode, platform, { ...artifact, classifier });
