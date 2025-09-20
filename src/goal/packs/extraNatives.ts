@@ -56,6 +56,9 @@ export function replaceLibraries(libraries: VersionFileLibrary[]) {
 		for (const patch of natives) {
 			if (patch.match.includes(target.name)) {
 				if (patch.override) {
+					if (patch.override.rules) {
+						target.rules = undefined;
+					}
 					deepMerge(target, patch.override);
 				}
 
