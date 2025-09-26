@@ -17,6 +17,7 @@ export const GitHubRelease = z.object({
 	tag_name: z.string(),
 	published_at: z.coerce.date(),
 	prerelease: z.boolean(),
+	html_url: z.string(),
 	draft: z.boolean(),
 	assets: z.array(GitHubReleaseAsset)
 });

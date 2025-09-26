@@ -1,6 +1,7 @@
 import { PistonArtifact, PistonLibrary, type PistonLoggingAsset, type PistonAssetIndexRef } from "#schema/pistonMeta/pistonVersion.ts";
 import type { SpeedrunMapIndex } from "#schema/speedrun/mapsIndex.ts";
 import type { SpeedrunModIndex } from "#schema/speedrun/modsIndex.ts";
+import type { SpeedrunProgramsIndex } from "#schema/speedrun/programsIndex.ts";
 
 export interface VersionFile {
 	uid: string;
@@ -39,6 +40,7 @@ export interface VersionFile {
 	// For Speedrun stuffs
 	mods?: SpeedrunModIndex[];
 	maps?: SpeedrunMapIndex[];
+	programs?: SpeedrunProgramsIndex[];
 
 }
 

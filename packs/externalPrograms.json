@@ -1,0 +1,46 @@
+[
+	{
+		"id": "ninjabrain-bot",
+		"type": "github",
+		"target": "Ninjabrain1/Ninjabrain-Bot",
+		"name": "Ninjabrain Bot",
+		"authors": ["Ninjabrain"],
+		"description": "Accurate stronghold calculator for Minecraft speedrunning",
+		"fileFilter": "jar"
+	},
+	{
+		"id": "jingle",
+		"type": "github",
+		"target": "DuncanRuns/Jingle",
+		"name": "Jingle",
+		"authors": ["DuncanRuns"],
+		"description": "An all-inclusive Minecraft speedrunning application written in Java for a single instance of Minecraft",
+		"fileFilter": "jar"
+	},
+	{
+		"id": "julti",
+		"type": "github",
+		"target": "DuncanRuns/Julti",
+		"name": "Julti",
+		"authors": ["DuncanRuns"],
+		"description": "A Java application to automate the process of using multiple Minecraft instances to speedrun",
+		"fileFilter": "jar"
+	},
+	{
+		"id": "aatool",
+		"type": "github",
+		"target": "DarwinBaker/AATool",
+		"name": "AATool",
+		"authors": ["DarwinBaker"],
+		"description": "A tool to track Minecraft Advancement progress",
+		"fileFilter": "exe",
+		"rules": [
+			{
+				"action": "allow",
+				"os": {
+					"name": "windows"
+				}
+			}
+		]
+	}
+]
