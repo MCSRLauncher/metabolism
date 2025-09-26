@@ -2,6 +2,7 @@ import { PistonRule } from "#schema/pistonMeta/pistonVersion.ts";
 import { z } from "zod/v4";
 
 export const SpeedrunProgramsIndex = z.object({
+	id: z.string(),
 	name: z.string(),
 	description: z.string(),
 	authors: z.array(z.string()),

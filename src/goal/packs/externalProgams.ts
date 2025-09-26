@@ -50,6 +50,7 @@ export default defineGoal({
 		for (const programInfo of info) {
 			if (!programInfo) continue;
 			result.push({
+				id: programInfo.program.id,
 				name: programInfo.program.name,
 				description: programInfo.program.description,
 				authors: programInfo.program.authors,
