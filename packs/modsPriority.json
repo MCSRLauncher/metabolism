@@ -6,5 +6,9 @@
 	{
 		"id": "worldpreview",
 		"priority": -1
+	},
+	{
+		"id": "phosphor",
+		"priority": -1
 	}
 ]
