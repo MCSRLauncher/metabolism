@@ -5,6 +5,7 @@ export const GitHubReleaseAsset = z.object({
 	name: z.string(),
 	digest: z.string().nullable(),
 	created_at: z.coerce.date(),
+	updated_at: z.coerce.date(),
 	browser_download_url: z.string(),
 	content_type: z.string(),
 	size: z.int(),

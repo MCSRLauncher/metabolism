@@ -47,7 +47,7 @@ export default defineGoal({
 });
 
 function getMods(name: string, list: SpeedrunModIndex[]): VersionOutput {
-	const date = new Date();
+	const date = new Date("10/4/2025 14:50 GMT+0000");
 	return {
 		version: name,
 		releaseTime: date.toISOString(),

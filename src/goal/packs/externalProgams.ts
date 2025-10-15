@@ -31,6 +31,7 @@ const providor = defineProvider({
 				return {
 					program: program,
 					source: `https://github.com/${program.target}`,
+					res: release,
 					downloadPage: release.html_url
 				};
 			} else {
@@ -61,9 +62,18 @@ export default defineGoal({
 			})
 		}
 
+		let releaseTime: Date | null = null;
+		info.forEach(i => {
+			if (!i) return;
+			if (!releaseTime || +releaseTime < i.res.published_at.getTime()) {
+				releaseTime = i.res.published_at;
+			}
+		})
+		if (!releaseTime) releaseTime = new Date();
+
 		return [{
 			version: "verified",
-			releaseTime: new Date().toISOString(),
+			releaseTime: releaseTime.toISOString(),
 			programs: result
 		}];
 	},

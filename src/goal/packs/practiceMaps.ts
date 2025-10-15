@@ -61,9 +61,18 @@ export default defineGoal({
 			})
 		}
 
+		let releaseTime: Date | null = null;
+		info.forEach(i => {
+			if (!i) return;
+			if (!releaseTime || +releaseTime < i.res.updated_at.getTime()) {
+				releaseTime = i.res.updated_at;
+			}
+		})
+		if (!releaseTime) releaseTime = new Date();
+
 		return [{
 			version: "verified",
-			releaseTime: new Date().toISOString(),
+			releaseTime: releaseTime.toISOString(),
 			maps: result
 		}];
 	},
