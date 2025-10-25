@@ -43,5 +43,5 @@ jobs:
                       git commit -m "Update - $(date +'%Y-%m-%d')"
                       git push
                   else
-                      echo "Only caches/ changed — skipping push."
+                      echo "Only cache directory has changed — skipping push."
                   fi
