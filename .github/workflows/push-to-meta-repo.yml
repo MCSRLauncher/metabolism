@@ -38,7 +38,7 @@ jobs:
                       exit 0
                   fi
 
-                  if git diff --name-only | grep -v '^caches/' | grep .; then
+                  if git diff --name-only | grep -v '^cache/' | grep .; then
                       git add .
                       git commit -m "Update - $(date +'%Y-%m-%d')"
                       git push
