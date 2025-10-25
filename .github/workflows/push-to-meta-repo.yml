@@ -32,6 +32,16 @@ jobs:
                   cd run
                   git config user.email "mcsrlauncher@gmail.com"
                   git config user.name "MCSRLauncher"
-                  git add .
-                    git diff-index --quiet HEAD || git commit -m "Update - $(date +'%Y-%m-%d')"
-                  git push
+
+                  if git diff --quiet; then
+                      echo "No changes detected."
+                      exit 0
+                  fi
+
+                  if git diff --name-only | grep -v '^caches/' | grep .; then
+                      git add .
+                      git commit -m "Update - $(date +'%Y-%m-%d')"
+                      git push
+                  else
+                      echo "Only caches/ changed — skipping push."
+                  fi
