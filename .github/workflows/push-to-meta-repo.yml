@@ -3,33 +3,35 @@
 name: Push to meta repo
 
 on:
-  push:
-    branches: [main]
-  workflow_dispatch:
+    push:
+        branches: [main]
+    workflow_dispatch:
+    schedule:
+        - cron: "0 * * * *"
 
 jobs:
-  run:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        env:
-          LAST_COMMIT: ${{ github.event.head_commit.message }}
-      - name: Checkout output repo
-        uses: actions/checkout@v4
-        with:
-          repository: MCSRLauncher/meta
-          token: ${{ secrets.META_TOKEN }}
-          path: run
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install --production --frozen-lockfile
-      - name: Generate
-        run: env PINO_LOG_LEVEL=debug bun start all --minify | bun pino-pretty
-      - name: Push
-        run: |
-          cd run
-          git config user.email "mcsrlauncher@gmail.com"
-          git config user.name "MCSRLauncher"
-          git add .
-            git diff-index --quiet HEAD || git commit -m "Update - $(date +'%Y-%m-%d')"
-          git push
+    run:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              env:
+                  LAST_COMMIT: ${{ github.event.head_commit.message }}
+            - name: Checkout output repo
+              uses: actions/checkout@v4
+              with:
+                  repository: MCSRLauncher/meta
+                  token: ${{ secrets.META_TOKEN }}
+                  path: run
+            - uses: oven-sh/setup-bun@v2
+            - run: bun install --production --frozen-lockfile
+            - name: Generate
+              run: env PINO_LOG_LEVEL=debug bun start all --minify | bun pino-pretty
+            - name: Push
+              run: |
+                  cd run
+                  git config user.email "mcsrlauncher@gmail.com"
+                  git config user.name "MCSRLauncher"
+                  git add .
+                    git diff-index --quiet HEAD || git commit -m "Update - $(date +'%Y-%m-%d')"
+                  git push
