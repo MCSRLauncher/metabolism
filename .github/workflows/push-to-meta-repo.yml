@@ -42,11 +42,6 @@ jobs:
 
                   git add .
 
-                  if git diff --quiet; then
-                      echo "No changes detected."
-                      exit 0
-                  fi
-
                   echo "output/index.json changed — pushing."
                   git add .
 
