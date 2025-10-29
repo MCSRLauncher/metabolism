@@ -6,7 +6,7 @@ import type { IndexFile } from "#schema/format/v1/indexFile.ts";
 import type { PackageIndexFile, PackageIndexFileVersion } from "#schema/format/v1/packageIndexFile.ts";
 import type { VersionFile } from "#schema/format/v1/versionFile.ts";
 import { pick, sortBy } from "es-toolkit";
-import { mkdir, writeFile } from "node:fs/promises";
+import { exists, mkdir, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { DiskCachedClient } from "./http/diskCachedClient.ts";
 import { GOALS } from "./registry.ts";
@@ -56,13 +56,22 @@ async function run(providers: Set<Provider>, dependents: Map<Provider, Goal[]>, 
 
 	const goalResults: [Goal, string][] = [];
 
-	await deleteDirIfExists(options.outputDir)
+    const outputIds = {};
+    if (await exists(options.outputDir)) {
+        const dirs = await readdir(options.outputDir);
+        dirs.forEach(name => outputIds[name] = true);
+    }
+
 	await Promise.all(providers.values().map(async provider => {
 		const data = await runProvider(provider, options);
 
 		logger.info(`Got data from provider '${provider.id}'!`);
 
 		const providerDependents = dependents.get(provider) ?? [];
+        await Promise.all(providerDependents.map(async goal => {
+            logger.info(`Processed provider, deleting old data of '${goal.id}'`);
+	        await deleteDirIfExists(path.join(options.outputDir, goal.id))
+        }))
 
 		return await Promise.all(providerDependents.map(async goal => {
 			goalResults.push([goal, await runGoal(goal, data, options)]);
@@ -70,6 +79,11 @@ async function run(providers: Set<Provider>, dependents: Map<Provider, Goal[]>, 
 			logger.info(`Done goal '${goal.id}'!`);
 		}));
 	}));
+
+    for await (const notProcessedIds of Object.keys(outputIds)) {
+        logger.info(`Not processed id, deleting old data of '${notProcessedIds}'`);
+        await deleteDirIfExists(path.join(options.outputDir, notProcessedIds))
+    }
 
 	const elapsedTime = Date.now() - startTime;
 	const formattedTime = elapsedTime < 1000 ? elapsedTime + "ms" : (elapsedTime / 1000) + "s";
