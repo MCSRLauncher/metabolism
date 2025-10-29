@@ -40,20 +40,20 @@ jobs:
                   git config user.email "mcsrlauncher@gmail.com"
                   git config user.name "MCSRLauncher"
 
+                  git add .
+
                   if git diff --quiet; then
                       echo "No changes detected."
                       exit 0
                   fi
 
-                  CHANGED_FILES=$(git diff --name-only)
+                  echo "output/index.json changed — pushing."
+                  git add .
 
-                  echo "Changed files:"
-                  echo "$CHANGED_FILES"
+                  CHANGED_FILES=$(git diff --name-only)
 
                   # output/index.json이 변경된 경우에만 push
                   if echo "$CHANGED_FILES" | grep -qx 'output/index.json'; then
-                      echo "output/index.json changed — pushing."
-                      git add .
                       git commit -m "Update - $(date +'%Y-%m-%d')"
                       git push
                   else
