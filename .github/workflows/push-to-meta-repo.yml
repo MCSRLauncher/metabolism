@@ -42,13 +42,11 @@ jobs:
 
                   git add .
 
-                  echo "output/index.json changed — pushing."
-                  git add .
-
-                  CHANGED_FILES=$(git diff --name-only)
+                  CHANGED_FILES=$(git diff --cached --name-only)
 
                   # output/index.json이 변경된 경우에만 push
                   if echo "$CHANGED_FILES" | grep -qx 'output/index.json'; then
+                      echo "output/index.json changed — pushing."
                       git commit -m "Update - $(date +'%Y-%m-%d')"
                       git push
                   else
