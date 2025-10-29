@@ -63,11 +63,16 @@ async function run(providers: Set<Provider>, dependents: Map<Provider, Goal[]>, 
     }
 
 	await Promise.all(providers.values().map(async provider => {
+		const providerDependents = dependents.get(provider) ?? [];
+        providerDependents.forEach(goal => {
+            logger.info(`Detected '${goal.id}' goal.`);
+            delete outputIds[goal.id];
+        });
+
 		const data = await runProvider(provider, options);
 
 		logger.info(`Got data from provider '${provider.id}'!`);
 
-		const providerDependents = dependents.get(provider) ?? [];
         await Promise.all(providerDependents.map(async goal => {
             logger.info(`Processed provider, deleting old data of '${goal.id}'`);
 	        await deleteDirIfExists(path.join(options.outputDir, goal.id))
