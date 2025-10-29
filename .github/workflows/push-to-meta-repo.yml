@@ -45,10 +45,17 @@ jobs:
                       exit 0
                   fi
 
-                  if git diff --name-only | grep -v '^cache/' | grep .; then
+                  CHANGED_FILES=$(git diff --name-only)
+
+                  echo "Changed files:"
+                  echo "$CHANGED_FILES"
+
+                  # output/index.json이 변경된 경우에만 push
+                  if echo "$CHANGED_FILES" | grep -qx 'output/index.json'; then
+                      echo "output/index.json changed — pushing."
                       git add .
                       git commit -m "Update - $(date +'%Y-%m-%d')"
                       git push
                   else
-                      echo "Only cache directory has changed — skipping push."
+                      echo "output/index.json not changed — skipping push."
                   fi
