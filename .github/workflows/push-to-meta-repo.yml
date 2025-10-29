@@ -6,6 +6,11 @@ on:
     push:
         branches: [main]
     workflow_dispatch:
+        inputs:
+            debug:
+                type: boolean
+                description: "Enable debug logging"
+                default: false
     schedule:
         - cron: "0 * * * *"
 
@@ -26,7 +31,9 @@ jobs:
             - uses: oven-sh/setup-bun@v2
             - run: bun install --production --frozen-lockfile
             - name: Generate
-              run: env PINO_LOG_LEVEL=debug bun start all --minify | bun pino-pretty
+              env:
+                  PINO_LOG_LEVEL: ${{ github.event.inputs.debug == 'true' && 'debug' || '' }}
+              run: bun start all --minify | bun pino-pretty
             - name: Push
               run: |
                   cd run
