@@ -59,7 +59,7 @@ async function run(providers: Set<Provider>, dependents: Map<Provider, Goal[]>, 
     const outputIds = {};
     if (await exists(options.outputDir)) {
         const dirs = await readdir(options.outputDir);
-        dirs.forEach(name => outputIds[name] = true);
+        dirs.filter(name => !name.endsWith(".json")).forEach(name => outputIds[name] = true);
     }
 
 	await Promise.all(providers.values().map(async provider => {
