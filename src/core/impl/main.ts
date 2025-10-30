@@ -6,8 +6,8 @@ import { GOALS, PROVIDERS } from "./registry.ts";
 import { build, prepare, sync } from "./runner.ts";
 
 const command = new Command("bun start")
-	.description("Metabolism - Prism Launcher Metadata Generator")
-	.option("-u, --user-agent <value>", "set the User-Agent header", "PrismLauncherMeta/" + packageJSON.version)
+	.description("Metabolism - MCSR Launcher Metadata Generator (forked from PrismLauncher/Metabolism)")
+	.option("-u, --user-agent <value>", "set the User-Agent header", "MCSRLauncherMeta/" + packageJSON.version)
 	.option("-o, --output-dir <path>", "set the output directory", "./run/output")
 	.option("-c, --cache-dir <path>", "set the cache directory", "./run/cache")
 	.option("-A, --assume-up-to-date", "Always assume cache entries are up-to-date", false)
