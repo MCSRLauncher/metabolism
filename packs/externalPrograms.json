@@ -42,5 +42,22 @@
 				}
 			}
 		]
+	},
+	{
+		"id": "jarfix",
+		"type": "github",
+		"target": "qMaxXen/Jarfix",
+		"name": "Jarfix",
+		"authors": ["qMaxXen"],
+		"description": "A program that fixes .jar file associations on Windows",
+		"fileFilter": "exe",
+		"rules": [
+			{
+				"action": "allow",
+				"os": {
+					"name": "windows"
+				}
+			}
+		]
 	}
 ]
