@@ -1,9 +1,19 @@
 [
 	{
 		"type": "github",
+		"target": "Dibedy/The-MCSR-Practice-Map",
+		"name": "MCSR Practice Map",
+		"authors": ["Dibedy", "Mescht", "LlamaPag"],
+		"description": "A Practice map which combines every imporant 1.16.1 Practice Map into one, while adding new features and sections.",
+		"versions": [
+			"1.16.x"
+		]
+	},
+	{
+		"type": "github",
 		"target": "LlamaPag/bastion",
 		"name": "Bastion Practice",
-		"authors": ["Llama"],
+		"authors": ["LlamaPag"],
 		"description": "A Minecraft bastion practice map for speedrunners",
 		"versions": [
 			"1.16.x"
@@ -42,6 +52,16 @@
 	},
 	{
 		"type": "github",
+		"target": "Mescht/Blaze-Practice",
+		"name": "Blaze Practice",
+		"authors": ["Mescht"],
+		"description": "Minecraft Map for Practicing the Blaze Spawner Split in Speedruns",
+		"versions": [
+			"1.16.x"
+		]
+	},
+	{
+		"type": "github",
 		"target": "Semperzz/Blaze-Practice",
 		"name": "Blaze Practice",
 		"authors": ["Semperzz"],
@@ -57,6 +77,16 @@
 		"name": "BTPractice",
 		"authors": ["Mescht"],
 		"description": "Map / Datapack to practice Mapless Buried Treasure",
+		"versions": [
+			"1.16.x"
+		]
+	},
+	{
+		"type": "github",
+		"target": "Mescht/Searchcraft-Practice",
+		"name": "Search Crafting Practice",
+		"authors": ["Mescht"],
+		"description": "Map for practicing search crafting / book crafting in Minecraft",
 		"versions": [
 			"1.16.x"
 		]
@@ -87,6 +117,16 @@
 		"name": "Portal Practice",
 		"authors": ["Semperzz"],
 		"description": "Portal Build Practice Map",
+		"versions": [
+			"1.16.x"
+		]
+	},
+	{
+		"type": "github",
+		"target": "Mescht/Portal-Practice",
+		"name": "Portal Practice",
+		"authors": ["Mescht"],
+		"description": "Map to practice different portal types designed for speedrunners",
 		"versions": [
 			"1.16.x"
 		]
