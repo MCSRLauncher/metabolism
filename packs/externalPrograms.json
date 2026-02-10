@@ -44,6 +44,16 @@
 		]
 	},
 	{
+		"id": "advancely",
+		"type": "github",
+		"target": "LNXSeus/Advancely",
+		"name": "Advancely",
+		"authors": ["LNXSeus"],
+		"description": "A highly customizable and interactive tool to track Minecraft progress beyond just Advancements.",
+		"fileFilter": "zip",
+		"rules": []
+	},
+	{
 		"id": "jarfix",
 		"type": "github",
 		"target": "qMaxXen/Jarfix",
