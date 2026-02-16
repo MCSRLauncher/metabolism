@@ -4,7 +4,9 @@
 		"type": "github",
 		"target": "Ninjabrain1/Ninjabrain-Bot",
 		"name": "Ninjabrain Bot",
-		"authors": ["Ninjabrain"],
+		"authors": [
+			"Ninjabrain"
+		],
 		"description": "Accurate stronghold calculator for Minecraft speedrunning",
 		"fileFilter": "jar"
 	},
@@ -13,7 +15,9 @@
 		"type": "github",
 		"target": "DuncanRuns/Jingle",
 		"name": "Jingle",
-		"authors": ["DuncanRuns"],
+		"authors": [
+			"DuncanRuns"
+		],
 		"description": "An all-inclusive Minecraft speedrunning application written in Java for a single instance of Minecraft",
 		"fileFilter": "jar"
 	},
@@ -22,16 +26,59 @@
 		"type": "github",
 		"target": "DuncanRuns/Julti",
 		"name": "Julti",
-		"authors": ["DuncanRuns"],
+		"authors": [
+			"DuncanRuns"
+		],
 		"description": "A Java application to automate the process of using multiple Minecraft instances to speedrun",
 		"fileFilter": "jar"
+	},
+	{
+		"id": "toolscreen",
+		"type": "github",
+		"target": "jojoe77777/Toolscreen",
+		"name": "Toolscreen",
+		"authors": [
+			"jojoe77777"
+		],
+		"description": "Program for overlays, instant resizing, and more, for fullscreen Minecraft",
+		"fileFilter": "jar",
+		"rules": [
+			{
+				"action": "allow",
+				"os": {
+					"name": "windows"
+				}
+			}
+		]
+	},
+	{
+		"id": "waywall",
+		"type": "direct",
+		"target": "https://tesselslate.github.io/waywall/",
+		"name": "Waywall",
+		"sourceLink": "https://github.com/tesselslate/waywall",
+		"authors": [
+			"tesselslate"
+		],
+		"description": "Wayland compositor that provides various convenient features (key rebinding, Ninjabrain Bot support, etc) for Minecraft speedrunning",
+		"fileFilter": null,
+		"rules": [
+			{
+				"action": "allow",
+				"os": {
+					"name": "linux"
+				}
+			}
+		]
 	},
 	{
 		"id": "aatool",
 		"type": "github",
 		"target": "DarwinBaker/AATool",
 		"name": "AATool",
-		"authors": ["DarwinBaker"],
+		"authors": [
+			"DarwinBaker"
+		],
 		"description": "A tool to track Minecraft Advancement progress",
 		"fileFilter": "exe",
 		"rules": [
@@ -48,7 +95,9 @@
 		"type": "github",
 		"target": "LNXSeus/Advancely",
 		"name": "Advancely",
-		"authors": ["LNXSeus"],
+		"authors": [
+			"LNXSeus"
+		],
 		"description": "A highly customizable and interactive tool to track Minecraft progress beyond just Advancements.",
 		"fileFilter": "zip",
 		"rules": []
@@ -58,7 +107,9 @@
 		"type": "github",
 		"target": "qMaxXen/Jarfix",
 		"name": "Jarfix",
-		"authors": ["qMaxXen"],
+		"authors": [
+			"qMaxXen"
+		],
 		"description": "A program that fixes .jar file associations on Windows",
 		"fileFilter": "exe",
 		"rules": [

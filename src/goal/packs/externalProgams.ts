@@ -3,18 +3,19 @@ import { defineProvider } from "#core/provider.ts";
 import { GitHubRelease } from "#schema/githubReleaseRef.ts";
 import type { PistonRule } from "#schema/pistonMeta/pistonVersion.ts";
 import type { SpeedrunProgramsIndex } from "#schema/speedrun/programsIndex.ts";
-import rawPrograms from "../../../packs/externalPrograms.json" with { type: "json" }
+import rawPrograms from "../../../packs/externalPrograms.json" with { type: "json" };
 
 interface ProgramInfo {
 	id: string,
 	type: string,
 	target: string,
 	targetVersion?: string,
+	sourceLink?: string,
 	name: string,
-	authors: string[]
+	authors: string[];
 	description: string,
 	fileFilter: string,
-	rules?: PistonRule[]
+	rules?: PistonRule[];
 }
 
 const programs: ProgramInfo[] = rawPrograms as ProgramInfo[];
@@ -33,6 +34,14 @@ const providor = defineProvider({
 					source: `https://github.com/${program.target}`,
 					res: release,
 					downloadPage: release.html_url
+				};
+			} if (program.type == "direct") {
+				if (!program.sourceLink) throw "Illegal source: sourceLink is null";
+				return {
+					program: program,
+					source: program.sourceLink,
+					res: null,
+					downloadPage: program.target
 				};
 			} else {
 				throw "Illegal map type argument";
@@ -59,16 +68,16 @@ export default defineGoal({
 				downloadPage: programInfo.downloadPage,
 				fileFilter: programInfo.program.fileFilter,
 				rules: programInfo.program.rules,
-			})
+			});
 		}
 
 		let releaseTime: Date | null = null;
 		info.forEach(i => {
-			if (!i) return;
+			if (!i || !i.res) return;
 			if (!releaseTime || +releaseTime < i.res.published_at.getTime()) {
 				releaseTime = i.res.published_at;
 			}
-		})
+		});
 		if (!releaseTime) releaseTime = new Date();
 
 		return [{
