@@ -1,34 +1,23 @@
 import { defineGoal, type VersionOutput } from "#core/goal.ts";
 import speedrunModVersions from "#provider/speedrunModVersions.ts";
-import type { SpeedrunModIndex, SpeedrunModVersion } from "#schema/speedrun/modsIndex.ts";
-import rawOptifines from "../../packs/optifine.json" with { type: "json" }
-import rawPriorities from "../../packs/modsPriority.json" with { type: "json" }
-
-const optifineVersions: SpeedrunModVersion[] = rawOptifines as SpeedrunModVersion[];
+import type { SpeedrunModIndex } from "#schema/speedrun/modsIndex.ts";
+import rawPriorities from "../../packs/modsPriority.json" with { type: "json" };
 
 interface ModCompatibilityPriority {
 	id: string,
-	priority: number
+	priority: number;
 }
 
 const modPriorities: ModCompatibilityPriority[] = rawPriorities as ModCompatibilityPriority[];
 
 export default defineGoal({
-    id: "org.mcsr.mods",
-    name: "Speedrun Mods",
-    provider: speedrunModVersions,
+	id: "org.mcsr.mods",
+	name: "Speedrun Mods",
+	provider: speedrunModVersions,
 
-    generate(info): VersionOutput[] {
+	generate(info): VersionOutput[] {
 		const standardSettingsId = "standardsettings";
 		const defaultMCSRRankedMods = ["antigone", "fast_reset", "krypton", "lazydfu", "lazystronghold", "lithium", "sodium", "sodiummac", "sodiummac", "starlight", "voyager", "speedrunapi", "antiresourcereload", "state-output", "speedrunigt", "boundlesswindow", "retino"];
-
-		info.mods.push({
-			modid: "optifine",
-			name: "OptiFine",
-			description: "Minecraft optimization mod for legacy versions",
-			sources: "https://optifine.net/",
-			versions: optifineVersions
-		});
 
 		info.mods = info.mods.map(mod => {
 			const priority = modPriorities.find(m => m.id == mod.modid);
@@ -36,14 +25,14 @@ export default defineGoal({
 			return mod;
 		});
 
-        return [
+		return [
 			getMods("verified", info.mods),
 			getMods("mcsrranked-all", info.mods),
 			getMods("mcsrranked-standardsettings", info.mods.filter(m => defaultMCSRRankedMods.includes(m.modid) || m.modid == standardSettingsId)),
 			getMods("mcsrranked-basic", info.mods.filter(m => defaultMCSRRankedMods.includes(m.modid))),
 		];
-    },
-    recommend: () => false,
+	},
+	recommend: () => false,
 });
 
 function getMods(name: string, list: SpeedrunModIndex[]): VersionOutput {
@@ -52,5 +41,5 @@ function getMods(name: string, list: SpeedrunModIndex[]): VersionOutput {
 		version: name,
 		releaseTime: date.toISOString(),
 		mods: list
-	}
+	};
 }

@@ -4,20 +4,20 @@ import { defineProvider } from "#core/provider.ts";
 import { SpeedrunModIndexes } from "#schema/speedrun/modsIndex.ts";
 
 export default defineProvider({
-    id: "speedrun-mod-versions",
+	id: "speedrun-mod-versions",
 
-    provide: http => provide(http, new URL("schema-6/mods.json", SPEEDRUN_MODS_META)),
+	provide: http => provide(http, new URL("schema-7/mods.json", SPEEDRUN_MODS_META)),
 });
 
 async function provide(http: HTTPClient, meta: string | URL): Promise<SpeedrunModIndexes> {
-    const list = SpeedrunModIndexes.parse((await http.getCached(meta, "mod-versions.json")).json());
+	const list = SpeedrunModIndexes.parse((await http.getCached(meta, "mod-versions-scheme7.json")).json());
 	list.mods = list.mods.map(mod => {
 		mod.versions = mod.versions.map(v => {
-			v.filename = v.url.split("/").splice(-1)[0]!!
+			v.filename = v.url.split("/").splice(-1)[0]!!;
 			return v;
 		});
 		return mod;
 	});
-    return list;
+	return list;
 }
 

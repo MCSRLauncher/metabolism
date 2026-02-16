@@ -5,11 +5,12 @@ export const SpeedrunModVersion = z.object({
     target_version: z.array(z.string()),
     version: z.string(),
     url: z.string(),
-    hash: z.string(),
+    sha512: z.string(),
     filename: z.string().default(""),
     obsolete: z.boolean().optional(),
     priority: z.number().optional(),
-    intermediary: z.array(z.string())
+    intermediary: z.array(z.string()),
+    recommended: z.boolean().optional()
 });
 
 export type SpeedrunModVersion = z.output<typeof SpeedrunModVersion>;
@@ -19,7 +20,7 @@ export const SpeedrunModIndex = z.object({
     modid: z.string(),
     name: z.string(),
     description: z.string(),
-    sources: z.string(),
+    homepage: z.string(),
     versions: z.array(SpeedrunModVersion),
     traits: z.array(z.string()).optional(),
     incompatibilities: z.array(z.string()).optional(),
