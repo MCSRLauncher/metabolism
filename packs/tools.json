@@ -1,0 +1,19 @@
+[
+    {
+        "id": "toolscreen",
+        "name": "Toolscreen",
+        "type": "github",
+        "target": "jojoe77777/Toolscreen",
+        "format": ".jar",
+        "base": "instance",
+        "homepage": "https://github.com/jojoe77777/Toolscreen",
+        "rules": [
+			{
+				"action": "allow",
+				"os": {
+					"name": "windows"
+				}
+			}
+		]
+    }
+]

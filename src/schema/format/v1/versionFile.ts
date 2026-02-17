@@ -2,6 +2,7 @@ import { PistonArtifact, PistonLibrary, type PistonLoggingAsset, type PistonAsse
 import type { SpeedrunMapIndex } from "#schema/speedrun/mapsIndex.ts";
 import type { SpeedrunModIndex } from "#schema/speedrun/modsIndex.ts";
 import type { SpeedrunProgramsIndex } from "#schema/speedrun/programsIndex.ts";
+import type { SpeedrunToolsIndexes } from "#schema/speedrun/toolsIndex.ts";
 
 export interface VersionFile {
 	uid: string;
@@ -41,6 +42,7 @@ export interface VersionFile {
 	mods?: SpeedrunModIndex[];
 	maps?: SpeedrunMapIndex[];
 	programs?: SpeedrunProgramsIndex[];
+	tool?: SpeedrunToolsIndexes;
 
 }
 
