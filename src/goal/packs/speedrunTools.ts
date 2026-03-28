@@ -24,6 +24,7 @@ const providor = defineProvider({
                             name: targetFile.name,
                             version: res.tag_name,
                             releaseTime: res.published_at,
+                            prerelease: res.prerelease,
                             url: targetFile.browser_download_url,
                         }
                     }),
