@@ -164,7 +164,8 @@ async function runGoal(goal: Goal, data: unknown, options: RunnerOptions): Promi
 				"releaseTime",
 				"compatibleIntermediaries",
 				"conflicts",
-				"requires"
+				"requires",
+				"dataVersion"
 			]),
 			recommended,
 			sha256

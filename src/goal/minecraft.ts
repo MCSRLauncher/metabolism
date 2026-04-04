@@ -69,6 +69,7 @@ function transformVersion(version: PistonVersion): VersionOutput {
 			name: `com.mojang:minecraft:${version.id}:client`,
 			downloads: { artifact: version.downloads.client }
 		},
+        dataVersion: version.dataVersion,
 		logging: version.logging?.client,
 		assetIndex: version.assetIndex,
 		libraries: replaceLibraries(libraries.map(transformPistonLibrary)),

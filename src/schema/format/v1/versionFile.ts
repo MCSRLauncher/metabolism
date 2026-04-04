@@ -25,6 +25,7 @@ export interface VersionFile {
 	"+tweakers"?: string[];
 	mainClass?: string;
 	minecraftArguments?: string;
+	dataVersion?: number;
 
 	mainJar?: VersionFileLibrary;
 	logging?: PistonLoggingAsset;

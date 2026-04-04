@@ -103,6 +103,7 @@ export const PistonVersion = z.object({
 	logging: z.object({
 		client: PistonLoggingAsset.optional(),
 	}).optional(),
+    dataVersion: z.int32().optional(),
 	mainClass: z.string().nullable().optional().transform(x => x ?? undefined),
 	minecraftArguments: z.string().optional(),
 	releaseTime: z.coerce.date(),
@@ -113,3 +114,9 @@ export const PistonVersion = z.object({
 
 export type PistonVersion = z.output<typeof PistonVersion>
 
+export const ProtocolVersion = z.object({
+    minecraftVersion: z.string(),
+    dataVersion: z.int32()
+});
+
+export type ProtocolVersion = z.output<typeof ProtocolVersion>

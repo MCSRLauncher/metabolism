@@ -2,6 +2,8 @@ export const PISTON_META = "https://piston-meta.mojang.com/";
 
 export const OMNIARCHIVE_META = "https://meta.omniarchive.uk/";
 
+export const PROTOCOL_VERSION_META = "https://raw.githubusercontent.com/PrismarineJS/minecraft-data/refs/heads/master/data/pc/common/protocolVersions.json";
+
 export const FABRIC_META = "https://meta.fabricmc.net/";
 export const FABRIC_INTERMEDIARY_META = FABRIC_META + "v2/versions/intermediary/";
 export const FABRIC_MAVEN = "https://maven.fabricmc.net/";
