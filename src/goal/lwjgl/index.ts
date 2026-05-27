@@ -153,7 +153,7 @@ function transformModuleMerged(module: LWJGLModule): VersionFileLibrary[] {
 	const result: VersionFileLibrary[] = [];
 
 	if (module.javaCode !== undefined)
-		result.push({ name: module.baseName.value, downloads: { artifact: module.javaCode }, rules: module.rules });
+		result.push({ name: module.baseName.value, downloads: { artifact: module.javaCode }, rules: isEmpty(module.nativeCode) ? module.rules : undefined });
 
 	if (!isEmpty(module.nativeCode)) {
 		const classifiers = Object.fromEntries(
@@ -166,7 +166,7 @@ function transformModuleMerged(module: LWJGLModule): VersionFileLibrary[] {
 				.map(([platform, artifact]) => [platform, artifact.classifier])
 		);
 
-		result.push({ name: module.baseName.value, downloads: { classifiers }, natives, rules: module.rules });
+		result.push({ name: module.baseName.value, downloads: { classifiers }, natives });
 	}
 
 	return result;
