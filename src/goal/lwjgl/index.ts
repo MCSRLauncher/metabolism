@@ -8,6 +8,7 @@ import pistonMetaGameVersions from "#provider/gameVersions/index.ts";
 import type { VersionFileArtifact, VersionFileDependency, VersionFileLibrary, VersionFilePlatform } from "#schema/format/v1/versionFile.ts";
 import { MavenArtifactRef } from "#schema/mavenArtifactRef.ts";
 import { PistonRule, PistonVersion } from "#schema/pistonMeta/pistonVersion.ts";
+import { deepEquals } from "bun";
 import { omit } from "es-toolkit";
 import { isEmpty } from "es-toolkit/compat";
 
@@ -81,6 +82,7 @@ function generate(data: PistonVersion[], conflictUIDs: string[], filter: Version
 				lib.name.format(["group", "artifact"]), // org.lwjgl:lwjgl-thing
 				{ baseName: lib.name.withoutClassifier(), nativeCode: new Map, rules: lib.rules }
 			);
+            if (lib.rules && module.rules && !deepEquals(lib.rules, module.rules)) module.rules = undefined;
 
 			if (lib.downloads?.artifact) {
 				const artifact = transformPistonArtifact(lib.downloads.artifact);
