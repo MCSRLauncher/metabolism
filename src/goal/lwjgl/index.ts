@@ -7,7 +7,7 @@ import { replaceLibraries } from "#goal/packs/extraNatives.ts";
 import pistonMetaGameVersions from "#provider/gameVersions/index.ts";
 import type { VersionFileArtifact, VersionFileDependency, VersionFileLibrary, VersionFilePlatform } from "#schema/format/v1/versionFile.ts";
 import { MavenArtifactRef } from "#schema/mavenArtifactRef.ts";
-import { PistonRule, PistonVersion } from "#schema/pistonMeta/pistonVersion.ts";
+import { PistonVersion } from "#schema/pistonMeta/pistonVersion.ts";
 import { omit } from "es-toolkit";
 import { isEmpty } from "es-toolkit/compat";
 
@@ -48,7 +48,6 @@ interface LWJGLModule {
 	baseName: MavenArtifactRef;
 	javaCode?: VersionFileArtifact;
 	nativeCode: Map<VersionFilePlatform, ArtifactWithClassifier>;
-	rules?: Array<PistonRule>;
 }
 
 function generate(data: PistonVersion[], conflictUIDs: string[], filter: VersionNamePredicate, filterDep: VersionNamePredicate): VersionOutput[] {
@@ -79,7 +78,7 @@ function generate(data: PistonVersion[], conflictUIDs: string[], filter: Version
 			const module = setIfAbsent(
 				target,
 				lib.name.format(["group", "artifact"]), // org.lwjgl:lwjgl-thing
-				{ baseName: lib.name.withoutClassifier(), nativeCode: new Map, rules: lib.rules }
+				{ baseName: lib.name.withoutClassifier(), nativeCode: new Map }
 			);
 
 			if (lib.downloads?.artifact) {
@@ -153,7 +152,7 @@ function transformModuleMerged(module: LWJGLModule): VersionFileLibrary[] {
 	const result: VersionFileLibrary[] = [];
 
 	if (module.javaCode !== undefined)
-		result.push({ name: module.baseName.value, downloads: { artifact: module.javaCode }, rules: module.rules });
+		result.push({ name: module.baseName.value, downloads: { artifact: module.javaCode } });
 
 	if (!isEmpty(module.nativeCode)) {
 		const classifiers = Object.fromEntries(
@@ -166,7 +165,7 @@ function transformModuleMerged(module: LWJGLModule): VersionFileLibrary[] {
 				.map(([platform, artifact]) => [platform, artifact.classifier])
 		);
 
-		result.push({ name: module.baseName.value, downloads: { classifiers }, natives, rules: module.rules });
+		result.push({ name: module.baseName.value, downloads: { classifiers }, natives });
 	}
 
 	return result;
