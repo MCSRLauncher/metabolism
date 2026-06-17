@@ -30,22 +30,22 @@ async function pistonMetaVersions(http: HTTPClient, protocolMeta: ProtocolVersio
 }
 
 // not all omniarchive versions - just enough to maintain backwards compat :)
-async function omniarchiveVersions(http: HTTPClient, protocolMeta: ProtocolVersion[]): Promise<PistonVersion[]> {
-	const base = "omniarchive";
+// async function omniarchiveVersions(http: HTTPClient, protocolMeta: ProtocolVersion[]): Promise<PistonVersion[]> {
+// 	const base = "omniarchive";
 
-	const manifest = PistonVersionManifest.parse(
-		(await http.getCached(
-			new URL("v1/manifest.json", OMNIARCHIVE_META),
-			base + "/manifest.json",
-		)).json()
-	);
+// 	const manifest = PistonVersionManifest.parse(
+// 		(await http.getCached(
+// 			new URL("v1/manifest.json", OMNIARCHIVE_META),
+// 			base + "/manifest.json",
+// 		)).json()
+// 	);
 
-	const versions = manifest.versions
-		.filter(x => Object.hasOwn(OMNIARCHIVE_MAPPINGS, x.id))
-		.map(x => ({ ...x, ...OMNIARCHIVE_MAPPINGS[x.id]! }));
+// 	const versions = manifest.versions
+// 		.filter(x => Object.hasOwn(OMNIARCHIVE_MAPPINGS, x.id))
+// 		.map(x => ({ ...x, ...OMNIARCHIVE_MAPPINGS[x.id]! }));
 
-	return getVersions(http, base, versions, protocolMeta);
-}
+// 	return getVersions(http, base, versions, protocolMeta);
+// }
 
 async function getVersions(http: HTTPClient, base: string, versions: PistonVersionRef[], protocolMeta: ProtocolVersion[]): Promise<PistonVersion[]> {
 	return await Promise.all(versions.map(async (version): Promise<PistonVersion> => {
