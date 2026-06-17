@@ -11,7 +11,7 @@ export default defineProvider({
 
 	async provide(http): Promise<PistonVersion[]> {
         const protocolMeta = ProtocolVersion.array().parse((await http.getCached(new URL(PROTOCOL_VERSION_META), "game-versions/protocol")).json());
-		return Promise.all([pistonMetaVersions(http, protocolMeta), omniarchiveVersions(http, protocolMeta)])
+		return Promise.all([pistonMetaVersions(http, protocolMeta)])
 			.then(versions => orderBy(versions.flat(), [version => version.releaseTime], ["desc"]));
 	}
 });
