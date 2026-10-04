@@ -79,6 +79,7 @@ export enum VersionFileTrait {
 	UseOnlineFixes = "legacyServices",
 	QuickPlaySingleplayerAware = "feature:is_quick_play_singleplayer",
 	QuickPlayMultiplayerAware = "feature:is_quick_play_multiplayer",
+	StackShadowPages32 = "stackShadowPages32",
 }
 
 export interface VersionFileRuntime {

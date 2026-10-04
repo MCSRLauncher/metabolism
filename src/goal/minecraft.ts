@@ -49,6 +49,9 @@ function transformVersion(version: PistonVersion): VersionOutput {
 			traits.push(VersionFileTrait.QuickPlayMultiplayerAware);
 	}
 
+	if (version.arguments?.jvm?.find(jvmString => jvmString == "-XX:StackShadowPages=32"))
+		traits.push(VersionFileTrait.StackShadowPages32);
+
 	return {
 		version: version.id,
 		type: version.type,
