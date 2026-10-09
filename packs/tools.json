@@ -15,13 +15,5 @@
 				}
 			}
 		]
-    },
-	{
-        "id": "paceman-tracker",
-        "name": "Paceman Tracker",
-        "type": "github",
-        "target": "PaceMan-MCSR/PaceMan-Tracker",
-        "format": ".jar",
-        "homepage": "https://github.com/PaceMan-MCSR/PaceMan-Tracker"
     }
 ]
