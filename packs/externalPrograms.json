@@ -120,5 +120,17 @@
 				}
 			}
 		]
+	},
+	{
+		"id": "paceman-tracker",
+		"type": "github",
+		"target": "PaceMan-MCSR/PaceMan-Tracker",
+		"name": "Paceman Tracker",
+		"authors": [
+			"DuncanRuns"
+		],
+		"fileFilter": "jar",
+		"description": "A standalone application to track and upload runs to PaceMan.gg",
+		"rules": []
 	}
 ]
